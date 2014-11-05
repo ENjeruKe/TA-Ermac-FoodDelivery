@@ -1,0 +1,516 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		844659251A0A3C6A00DD426C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844659241A0A3C6A00DD426C /* main.m */; };
+		844659281A0A3C6A00DD426C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844659271A0A3C6A00DD426C /* AppDelegate.m */; };
+		8446592B1A0A3C6A00DD426C /* Food_Drlivery.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 844659291A0A3C6A00DD426C /* Food_Drlivery.xcdatamodeld */; };
+		8446592E1A0A3C6A00DD426C /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8446592D1A0A3C6A00DD426C /* ViewController.m */; };
+		844659311A0A3C6A00DD426C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8446592F1A0A3C6A00DD426C /* Main.storyboard */; };
+		844659331A0A3C6A00DD426C /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844659321A0A3C6A00DD426C /* Images.xcassets */; };
+		8446593F1A0A3C6B00DD426C /* Food_DrliveryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 8446593E1A0A3C6B00DD426C /* Food_DrliveryTests.m */; };
+		84A195A61A0A3F9E00A7207A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195A51A0A3F9E00A7207A /* CoreLocation.framework */; };
+		84A195A81A0A3FE800A7207A /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195A71A0A3FE800A7207A /* Bolts.framework */; };
+		84A195AB1A0A3FFE00A7207A /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195A91A0A3FFE00A7207A /* Parse.framework */; };
+		84A195AC1A0A3FFE00A7207A /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195AA1A0A3FFE00A7207A /* ParseFacebookUtils.framework */; };
+		84A195AE1A0A41AF00A7207A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195AD1A0A41AF00A7207A /* StoreKit.framework */; };
+		84A195B01A0A41BC00A7207A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195AF1A0A41BC00A7207A /* CoreGraphics.framework */; };
+		84A195B21A0A41D400A7207A /* libz.1.1.3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195B11A0A41D400A7207A /* libz.1.1.3.dylib */; };
+		84A195B41A0A41DB00A7207A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195B31A0A41DB00A7207A /* AudioToolbox.framework */; };
+		84A195B61A0A41E800A7207A /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195B51A0A41E800A7207A /* QuartzCore.framework */; };
+		84A195B81A0A41F900A7207A /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195B71A0A41F900A7207A /* MobileCoreServices.framework */; };
+		84A195BA1A0A421D00A7207A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195B91A0A421D00A7207A /* SystemConfiguration.framework */; };
+		84A195BC1A0A422C00A7207A /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195BB1A0A422C00A7207A /* CFNetwork.framework */; };
+		84A195BE1A0A423800A7207A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195BD1A0A423800A7207A /* UIKit.framework */; };
+		84A195C01A0A424600A7207A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195BF1A0A424600A7207A /* Foundation.framework */; };
+		84A195C21A0A42B200A7207A /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A195C11A0A42B200A7207A /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		844659391A0A3C6B00DD426C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 844659171A0A3C6A00DD426C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8446591E1A0A3C6A00DD426C;
+			remoteInfo = "Food Drlivery";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8446591F1A0A3C6A00DD426C /* Food Drlivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Drlivery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		844659231A0A3C6A00DD426C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		844659241A0A3C6A00DD426C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		844659261A0A3C6A00DD426C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		844659271A0A3C6A00DD426C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		8446592A1A0A3C6A00DD426C /* Food_Drlivery.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Food_Drlivery.xcdatamodel; sourceTree = "<group>"; };
+		8446592C1A0A3C6A00DD426C /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		8446592D1A0A3C6A00DD426C /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		844659301A0A3C6A00DD426C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		844659321A0A3C6A00DD426C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		844659381A0A3C6B00DD426C /* Food DrliveryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Food DrliveryTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8446593D1A0A3C6B00DD426C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8446593E1A0A3C6B00DD426C /* Food_DrliveryTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Food_DrliveryTests.m; sourceTree = "<group>"; };
+		84A195A51A0A3F9E00A7207A /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		84A195A71A0A3FE800A7207A /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Bolts.framework; path = Frameworks/Bolts.framework; sourceTree = "<group>"; };
+		84A195A91A0A3FFE00A7207A /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Parse.framework; path = Frameworks/Parse.framework; sourceTree = "<group>"; };
+		84A195AA1A0A3FFE00A7207A /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseFacebookUtils.framework; path = Frameworks/ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		84A195AD1A0A41AF00A7207A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		84A195AF1A0A41BC00A7207A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		84A195B11A0A41D400A7207A /* libz.1.1.3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.1.1.3.dylib; path = usr/lib/libz.1.1.3.dylib; sourceTree = SDKROOT; };
+		84A195B31A0A41DB00A7207A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		84A195B51A0A41E800A7207A /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		84A195B71A0A41F900A7207A /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		84A195B91A0A421D00A7207A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		84A195BB1A0A422C00A7207A /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		84A195BD1A0A423800A7207A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		84A195BF1A0A424600A7207A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		84A195C11A0A42B200A7207A /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8446591C1A0A3C6A00DD426C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				84A195A61A0A3F9E00A7207A /* CoreLocation.framework in Frameworks */,
+				84A195AE1A0A41AF00A7207A /* StoreKit.framework in Frameworks */,
+				84A195B01A0A41BC00A7207A /* CoreGraphics.framework in Frameworks */,
+				84A195B61A0A41E800A7207A /* QuartzCore.framework in Frameworks */,
+				84A195B21A0A41D400A7207A /* libz.1.1.3.dylib in Frameworks */,
+				84A195C21A0A42B200A7207A /* Security.framework in Frameworks */,
+				84A195B41A0A41DB00A7207A /* AudioToolbox.framework in Frameworks */,
+				84A195B81A0A41F900A7207A /* MobileCoreServices.framework in Frameworks */,
+				84A195AC1A0A3FFE00A7207A /* ParseFacebookUtils.framework in Frameworks */,
+				84A195BA1A0A421D00A7207A /* SystemConfiguration.framework in Frameworks */,
+				84A195BC1A0A422C00A7207A /* CFNetwork.framework in Frameworks */,
+				84A195AB1A0A3FFE00A7207A /* Parse.framework in Frameworks */,
+				84A195BE1A0A423800A7207A /* UIKit.framework in Frameworks */,
+				84A195C01A0A424600A7207A /* Foundation.framework in Frameworks */,
+				84A195A81A0A3FE800A7207A /* Bolts.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844659351A0A3C6B00DD426C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		844659161A0A3C6A00DD426C = {
+			isa = PBXGroup;
+			children = (
+				84A195A41A0A3F0D00A7207A /* Frameworks */,
+				844659211A0A3C6A00DD426C /* Food Drlivery */,
+				8446593B1A0A3C6B00DD426C /* Food DrliveryTests */,
+				844659201A0A3C6A00DD426C /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		844659201A0A3C6A00DD426C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8446591F1A0A3C6A00DD426C /* Food Drlivery.app */,
+				844659381A0A3C6B00DD426C /* Food DrliveryTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		844659211A0A3C6A00DD426C /* Food Drlivery */ = {
+			isa = PBXGroup;
+			children = (
+				844659261A0A3C6A00DD426C /* AppDelegate.h */,
+				844659271A0A3C6A00DD426C /* AppDelegate.m */,
+				8446592C1A0A3C6A00DD426C /* ViewController.h */,
+				8446592D1A0A3C6A00DD426C /* ViewController.m */,
+				8446592F1A0A3C6A00DD426C /* Main.storyboard */,
+				844659321A0A3C6A00DD426C /* Images.xcassets */,
+				844659291A0A3C6A00DD426C /* Food_Drlivery.xcdatamodeld */,
+				844659221A0A3C6A00DD426C /* Supporting Files */,
+			);
+			path = "Food Drlivery";
+			sourceTree = "<group>";
+		};
+		844659221A0A3C6A00DD426C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				844659231A0A3C6A00DD426C /* Info.plist */,
+				844659241A0A3C6A00DD426C /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8446593B1A0A3C6B00DD426C /* Food DrliveryTests */ = {
+			isa = PBXGroup;
+			children = (
+				8446593E1A0A3C6B00DD426C /* Food_DrliveryTests.m */,
+				8446593C1A0A3C6B00DD426C /* Supporting Files */,
+			);
+			path = "Food DrliveryTests";
+			sourceTree = "<group>";
+		};
+		8446593C1A0A3C6B00DD426C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8446593D1A0A3C6B00DD426C /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		84A195A41A0A3F0D00A7207A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84A195C11A0A42B200A7207A /* Security.framework */,
+				84A195BF1A0A424600A7207A /* Foundation.framework */,
+				84A195BD1A0A423800A7207A /* UIKit.framework */,
+				84A195BB1A0A422C00A7207A /* CFNetwork.framework */,
+				84A195B91A0A421D00A7207A /* SystemConfiguration.framework */,
+				84A195B71A0A41F900A7207A /* MobileCoreServices.framework */,
+				84A195B51A0A41E800A7207A /* QuartzCore.framework */,
+				84A195B31A0A41DB00A7207A /* AudioToolbox.framework */,
+				84A195B11A0A41D400A7207A /* libz.1.1.3.dylib */,
+				84A195AF1A0A41BC00A7207A /* CoreGraphics.framework */,
+				84A195AD1A0A41AF00A7207A /* StoreKit.framework */,
+				84A195A91A0A3FFE00A7207A /* Parse.framework */,
+				84A195AA1A0A3FFE00A7207A /* ParseFacebookUtils.framework */,
+				84A195A71A0A3FE800A7207A /* Bolts.framework */,
+				84A195A51A0A3F9E00A7207A /* CoreLocation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8446591E1A0A3C6A00DD426C /* Food Drlivery */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 844659421A0A3C6B00DD426C /* Build configuration list for PBXNativeTarget "Food Drlivery" */;
+			buildPhases = (
+				8446591B1A0A3C6A00DD426C /* Sources */,
+				8446591C1A0A3C6A00DD426C /* Frameworks */,
+				8446591D1A0A3C6A00DD426C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Food Drlivery";
+			productName = "Food Drlivery";
+			productReference = 8446591F1A0A3C6A00DD426C /* Food Drlivery.app */;
+			productType = "com.apple.product-type.application";
+		};
+		844659371A0A3C6B00DD426C /* Food DrliveryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 844659451A0A3C6B00DD426C /* Build configuration list for PBXNativeTarget "Food DrliveryTests" */;
+			buildPhases = (
+				844659341A0A3C6B00DD426C /* Sources */,
+				844659351A0A3C6B00DD426C /* Frameworks */,
+				844659361A0A3C6B00DD426C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8446593A1A0A3C6B00DD426C /* PBXTargetDependency */,
+			);
+			name = "Food DrliveryTests";
+			productName = "Food DrliveryTests";
+			productReference = 844659381A0A3C6B00DD426C /* Food DrliveryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		844659171A0A3C6A00DD426C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Borislav Boyadzhiev";
+				TargetAttributes = {
+					8446591E1A0A3C6A00DD426C = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					844659371A0A3C6B00DD426C = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 8446591E1A0A3C6A00DD426C;
+					};
+				};
+			};
+			buildConfigurationList = 8446591A1A0A3C6A00DD426C /* Build configuration list for PBXProject "Food Drlivery" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 844659161A0A3C6A00DD426C;
+			productRefGroup = 844659201A0A3C6A00DD426C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8446591E1A0A3C6A00DD426C /* Food Drlivery */,
+				844659371A0A3C6B00DD426C /* Food DrliveryTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8446591D1A0A3C6A00DD426C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				844659311A0A3C6A00DD426C /* Main.storyboard in Resources */,
+				844659331A0A3C6A00DD426C /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844659361A0A3C6B00DD426C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8446591B1A0A3C6A00DD426C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8446592B1A0A3C6A00DD426C /* Food_Drlivery.xcdatamodeld in Sources */,
+				844659281A0A3C6A00DD426C /* AppDelegate.m in Sources */,
+				8446592E1A0A3C6A00DD426C /* ViewController.m in Sources */,
+				844659251A0A3C6A00DD426C /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		844659341A0A3C6B00DD426C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8446593F1A0A3C6B00DD426C /* Food_DrliveryTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8446593A1A0A3C6B00DD426C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8446591E1A0A3C6A00DD426C /* Food Drlivery */;
+			targetProxy = 844659391A0A3C6B00DD426C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8446592F1A0A3C6A00DD426C /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				844659301A0A3C6A00DD426C /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		844659401A0A3C6B00DD426C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		844659411A0A3C6B00DD426C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				METAL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		844659431A0A3C6B00DD426C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "Food Drlivery/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		844659441A0A3C6B00DD426C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = "Food Drlivery/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		844659461A0A3C6B00DD426C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Food Drlivery.app/Food Drlivery";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Food DrliveryTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Debug;
+		};
+		844659471A0A3C6B00DD426C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Food Drlivery.app/Food Drlivery";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Food DrliveryTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				METAL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8446591A1A0A3C6A00DD426C /* Build configuration list for PBXProject "Food Drlivery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844659401A0A3C6B00DD426C /* Debug */,
+				844659411A0A3C6B00DD426C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		844659421A0A3C6B00DD426C /* Build configuration list for PBXNativeTarget "Food Drlivery" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844659431A0A3C6B00DD426C /* Debug */,
+				844659441A0A3C6B00DD426C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		844659451A0A3C6B00DD426C /* Build configuration list for PBXNativeTarget "Food DrliveryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				844659461A0A3C6B00DD426C /* Debug */,
+				844659471A0A3C6B00DD426C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		844659291A0A3C6A00DD426C /* Food_Drlivery.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				8446592A1A0A3C6A00DD426C /* Food_Drlivery.xcdatamodel */,
+			);
+			currentVersion = 8446592A1A0A3C6A00DD426C /* Food_Drlivery.xcdatamodel */;
+			path = Food_Drlivery.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 844659171A0A3C6A00DD426C /* Project object */;
+}
