@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 Borislav Boyadzhiev. All rights reserved.
 //
 
+#import <Parse/Parse.h>
 #import "ViewController.h"
 
 @interface ViewController ()
@@ -18,6 +19,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    PFObject *testObject = [PFObject objectWithClassName:@"TestObject"];
+    testObject[@"foo"] = @"bar";
+    [testObject saveInBackground];
+    NSLog(@"TestObject");
 }
 
 - (void)didReceiveMemoryWarning {
