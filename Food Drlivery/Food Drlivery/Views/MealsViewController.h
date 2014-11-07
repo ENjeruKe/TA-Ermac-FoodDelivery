@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Meal.h"
 
 @interface MealsViewController : UIViewController<UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *mealsTableView;
-
-
+@property (nonatomic, strong) Meal *selected;
 @end

@@ -41,6 +41,7 @@
 		84A361F71A0B90410084B520 /* libsqlite3.0.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A361F61A0B90410084B520 /* libsqlite3.0.dylib */; };
 		84A361F91A0B906D0084B520 /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84A361F81A0B906D0084B520 /* Social.framework */; };
 		84A361FB1A0B91890084B520 /* loginbg.png in Resources */ = {isa = PBXBuildFile; fileRef = 84A361FA1A0B91890084B520 /* loginbg.png */; };
+		84A44B151A0CD3000002D8D6 /* MealDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A44B141A0CD3000002D8D6 /* MealDetailsViewController.m */; };
 		84A56E351A0BDACA0056A3A5 /* MainTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A56E341A0BDACA0056A3A5 /* MainTabBarViewController.m */; };
 		84A6DAB01A0AA4590015BABE /* Meal.m in Sources */ = {isa = PBXBuildFile; fileRef = 84A6DAAF1A0AA4590015BABE /* Meal.m */; };
 		84ADBB4D1A0C2B4D00584A7F /* MealsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 84ADBB4C1A0C2B4D00584A7F /* MealsViewController.m */; };
@@ -118,6 +119,8 @@
 		84A361F61A0B90410084B520 /* libsqlite3.0.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.0.dylib; path = usr/lib/libsqlite3.0.dylib; sourceTree = SDKROOT; };
 		84A361F81A0B906D0084B520 /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		84A361FA1A0B91890084B520 /* loginbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = loginbg.png; path = Images.xcassets/loginbg.png; sourceTree = "<group>"; };
+		84A44B131A0CD3000002D8D6 /* MealDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MealDetailsViewController.h; path = Views/MealDetailsViewController.h; sourceTree = "<group>"; };
+		84A44B141A0CD3000002D8D6 /* MealDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MealDetailsViewController.m; path = Views/MealDetailsViewController.m; sourceTree = "<group>"; };
 		84A56E331A0BDACA0056A3A5 /* MainTabBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTabBarViewController.h; sourceTree = "<group>"; };
 		84A56E341A0BDACA0056A3A5 /* MainTabBarViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTabBarViewController.m; sourceTree = "<group>"; };
 		84A6DAAE1A0AA4590015BABE /* Meal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Meal.h; path = Models/Meal.h; sourceTree = "<group>"; };
@@ -296,6 +299,8 @@
 		84A361E71A0B7F0C0084B520 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84A44B131A0CD3000002D8D6 /* MealDetailsViewController.h */,
+				84A44B141A0CD3000002D8D6 /* MealDetailsViewController.m */,
 				84ADBB4B1A0C2B4D00584A7F /* MealsViewController.h */,
 				84ADBB4C1A0C2B4D00584A7F /* MealsViewController.m */,
 				84ADBB4E1A0C338B00584A7F /* MealTableViewCellController.h */,
@@ -461,6 +466,7 @@
 				84A361E61A0B7A140084B520 /* Order.m in Sources */,
 				8446592E1A0A3C6A00DD426C /* ViewController.m in Sources */,
 				844659251A0A3C6A00DD426C /* main.m in Sources */,
+				84A44B151A0CD3000002D8D6 /* MealDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

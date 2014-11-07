@@ -10,6 +10,7 @@
 
 @implementation Meal
 
+@dynamic mealId;
 @dynamic title;
 @dynamic price;
 @dynamic image;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ViewController : UIViewController <PFLogInViewControllerDelegate, PFSignUpViewControllerDelegate>
-
+extern NSInteger MYGlobalVariable;
 
 @end
 
