@@ -8,6 +8,7 @@
 
 #import <Parse/Parse.h>
 #import "ViewController.h"
+#import "MainTabBarViewController.h"
 
 @interface ViewController ()
             
@@ -102,9 +103,28 @@
         
     }else {
         NSLog(@"%@ logged in", [PFUser currentUser].username);
+        [self performSegueWithIdentifier: @"orderingSegue" sender: self];
+
     }
     
 }
+
+-(void)viewDidLayoutSubviews{
+   // [self performSegueWithIdentifier: @"orderingSegue" sender: self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([[segue identifier] isEqualToString:@"orderingSegue"])
+    {
+        // Get reference to the destination view controller
+        //TableBarsViewController *vc = [segue destinationViewController];
+        
+        // Pass any objects to the view controller here, like...
+        NSLog(@"Going to TableBarsView");
+    }
+}
+
+
 //
 //// Sent to the delegate to determine whether the log in request should be submitted to the server.
 - (BOOL)logInViewController:(PFLogInViewController *)logInController shouldBeginLogInWithUsername:(NSString *)username password:(NSString *)password {
@@ -135,6 +155,8 @@
 - (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+
 
 // Sent to the delegate to determine whether the sign up request should be submitted to the server.
 - (BOOL)signUpViewController:(PFSignUpViewController *)signUpController shouldBeginSignUp:(NSDictionary *)info {
