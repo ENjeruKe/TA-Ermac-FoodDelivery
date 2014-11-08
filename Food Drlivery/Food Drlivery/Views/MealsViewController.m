@@ -17,10 +17,14 @@
     NSArray *images;
     NSMutableArray *mealsData;
     Meal *tempMeal;
+    UIRefreshControl *refreshControl ;
+  //  PFImageView *mealImage;
 }
 @end
 
 @implementation MealsViewController
+
+@synthesize mealsTableView;
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,20 +41,57 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UINib *nib = [UINib nibWithNibName:@"MealTableViewCell"  bundle:nil];
-    [self.mealsTableView registerNib:nib forCellReuseIdentifier:@"MealTableViewCellController"];
-    // Do any additional setup after loading the view.
     mealsData = [[NSMutableArray alloc] init];
     tempMeal = [[Meal alloc] init];
     
-    [self addFakeData];
+    refreshControl = [[UIRefreshControl alloc] init];
+    refreshControl.backgroundColor = [UIColor whiteColor];
+    refreshControl.tintColor = [UIColor blackColor];
+    [refreshControl addTarget:mealsTableView
+                       action:@selector(retrieveFromParse)
+             forControlEvents:UIControlEventValueChanged];
+    [mealsTableView addSubview:refreshControl];
+    
+    [self retrieveFromParse];
+    
+    UINib *nib = [UINib nibWithNibName:@"MealTableViewCell"  bundle:nil];
+    [self.mealsTableView registerNib:nib forCellReuseIdentifier:@"MealTableViewCellController"];
+    // Do any additional setup after loading the view.
+    
+
+
+    //[self performSelector:@selector(retrieveFromParse)];
+   // mealImage = [[PFImageView alloc] init];
+   // [self.view addSubview:mealImage];
     
     [self.mealsTableView setDelegate:self];
     [self.mealsTableView setDataSource:self];
 }
 
--(void) addRealData{
+-(void) retrieveFromParse{
+    PFQuery *query = [PFQuery queryWithClassName: [Meal parseClassName]];
     
+    [query orderByAscending:@"title"];
+    
+    //__weak id weakSelf = self;
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if(!error){
+             mealsData = [[NSMutableArray alloc] initWithArray:objects];
+            //[self addFakeData];
+           // Meal *meal = [[Meal alloc] init];
+            //[mealsData addObject:meal];
+            [self.mealsTableView reloadData];
+            [refreshControl endRefreshing];
+            
+            NSLog(@"MEALS loeded:%lu", mealsData.count);
+            for (Meal *m in mealsData) {
+                NSLog(@"%@", m.title);
+            }
+            
+        }else{
+            NSLog(@"Error getting meals!");
+        }
+    }];
     
    
 }
@@ -86,7 +127,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [titles count];
+    return [mealsData count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,13 +137,14 @@
    MealTableViewCellController *cell = (MealTableViewCellController *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 
     tempMeal = (Meal *)[mealsData objectAtIndex:indexPath.row];
-    
+    //tempMeal = [mealsData objectAtIndex:indexPath.row];
 //    PFImageView *mealImage = [[PFImageView alloc] init];
-//    cell.mealImage = mealImage;
 //    mealImage.image = [UIImage imageNamed:@"emptyplate.jpg"]; // placeholder image
 //    mealImage.file = (PFFile *)tempMeal.image;
 //    [mealImage loadInBackground];
+//    cell.mealImage = mealImage;
     
+ 
     
     [tempMeal.image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {

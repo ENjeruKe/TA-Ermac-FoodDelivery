@@ -19,7 +19,7 @@
 }
 
 +(NSString *)parseClassName{
-    return @"Meal";
+    return @"Order";
 }
 
 @end
