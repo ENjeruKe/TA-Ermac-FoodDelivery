@@ -32,6 +32,8 @@
            // UIImageView* currentUserImage = [[UIImageView alloc]initWithImage:[UIImage imageWithData:currentUserPhoto.getData]];
            // self.profilePic = currentUserImage;
                  self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
+                 self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
+                 self.profilePic.clipsToBounds = YES;
              }
         }else {
             NSLog(@"ERROR!!!");
