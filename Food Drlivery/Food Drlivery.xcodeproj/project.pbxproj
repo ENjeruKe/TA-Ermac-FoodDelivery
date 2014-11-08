@@ -66,6 +66,7 @@
 		84ADBB731A0C3AC700584A7F /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84ADBB631A0C3AC700584A7F /* white_chocolate_donut.jpg */; };
 		84EB3F7C1A0D931000049476 /* emptyplate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84EB3F7B1A0D931000049476 /* emptyplate.jpg */; };
 		84F77AC51A0D7A61006DBE00 /* OrderDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */; };
+		CEDEDA411A0E45670098A613 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDEDA401A0E45670098A613 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -154,6 +155,8 @@
 		84EB3F7B1A0D931000049476 /* emptyplate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = emptyplate.jpg; path = Images.xcassets/emptyplate.jpg; sourceTree = "<group>"; };
 		84F77AC31A0D7A61006DBE00 /* OrderDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailsTableViewCell.h; path = Views/OrderDetailsTableViewCell.h; sourceTree = "<group>"; };
 		84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailsTableViewCell.m; path = Views/OrderDetailsTableViewCell.m; sourceTree = "<group>"; };
+		CEDEDA3F1A0E45670098A613 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		CEDEDA401A0E45670098A613 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +322,8 @@
 				84ADBB4E1A0C338B00584A7F /* MealTableViewCellController.h */,
 				84ADBB4F1A0C338B00584A7F /* MealTableViewCellController.m */,
 				84ADBB501A0C338B00584A7F /* MealTableViewCell.xib */,
+				CEDEDA3F1A0E45670098A613 /* ProfileViewController.h */,
+				CEDEDA401A0E45670098A613 /* ProfileViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				84ADBB511A0C338B00584A7F /* MealTableViewCellController.m in Sources */,
 				84A6DAB01A0AA4590015BABE /* Meal.m in Sources */,
 				8446592B1A0A3C6A00DD426C /* Food_Drlivery.xcdatamodeld in Sources */,
+				CEDEDA411A0E45670098A613 /* ProfileViewController.m in Sources */,
 				84A361E51A0B7A140084B520 /* Kitchen.m in Sources */,
 				84ADBB4D1A0C2B4D00584A7F /* MealsViewController.m in Sources */,
 				84A56E351A0BDACA0056A3A5 /* MainTabBarViewController.m in Sources */,

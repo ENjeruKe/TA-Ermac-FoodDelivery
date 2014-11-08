@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6154.17" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6153.11"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -14,10 +15,9 @@
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
                         <segue destination="bl6-Sg-myE" kind="show" identifier="orderingSegue" id="jzE-9v-zuY"/>
@@ -27,7 +27,7 @@
             </objects>
             <point key="canvasLocation" x="105" y="-83"/>
         </scene>
-        <!--Meals View Controller - Ястия-->
+        <!--Ястия-->
         <scene sceneID="rju-Uy-4db">
             <objects>
                 <viewController title="Ястия" id="GPn-rf-2mP" customClass="MealsViewController" sceneMemberID="viewController">
@@ -36,11 +36,11 @@
                         <viewControllerLayoutGuide type="bottom" id="VA4-zs-bMJ"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="XnK-ly-DrB">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zWU-tH-1JN">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </tableView>
                         </subviews>
@@ -51,7 +51,6 @@
                             <constraint firstAttribute="bottom" secondItem="zWU-tH-1JN" secondAttribute="bottom" id="vxt-pa-IF0"/>
                             <constraint firstItem="zWU-tH-1JN" firstAttribute="leading" secondItem="XnK-ly-DrB" secondAttribute="leading" id="wg7-gT-y2i"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Ястия" id="ZAA-CH-JFX"/>
                     <connections>
@@ -72,7 +71,7 @@
                         <viewControllerLayoutGuide type="bottom" id="WiL-IQ-S3d"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="LEO-J3-9Ft">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hg6-RI-WNO">
@@ -81,17 +80,8 @@
                                     <constraint firstAttribute="width" secondItem="hg6-RI-WNO" secondAttribute="height" multiplier="1:1" id="F2n-dd-anZ"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Ttitle" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="268" translatesAutoresizingMaskIntoConstraints="NO" id="IN5-7b-XOI">
-                                <rect key="frame" x="192" y="84" width="268" height="80"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="80" id="HW6-Ix-fXb"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottomLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDt-FM-Gg8">
-                                <rect key="frame" x="192" y="172" width="268" height="36"/>
+                                <rect key="frame" x="192" y="172" width="388" height="36"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="36" id="ceJ-4a-rfx"/>
                                 </constraints>
@@ -107,7 +97,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Price" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wqY-Ro-t89">
-                                <rect key="frame" x="192" y="216" width="268" height="32"/>
+                                <rect key="frame" x="192" y="216" width="388" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="32" id="Vbr-Bp-2W8"/>
                                 </constraints>
@@ -116,7 +106,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZe-xQ-heM">
-                                <rect key="frame" x="141" y="374" width="199" height="50"/>
+                                <rect key="frame" x="141" y="494" width="199" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="198" id="6eG-jX-S52"/>
                                     <constraint firstAttribute="height" constant="50" id="whm-bZ-ZJP"/>
@@ -129,7 +119,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fmQ-s3-2dd">
-                                <rect key="frame" x="20" y="256" width="440" height="110"/>
+                                <rect key="frame" x="20" y="256" width="560" height="230"/>
                                 <attributedString key="attributedText">
                                     <fragment content="Meal Description">
                                         <attributes>
@@ -139,6 +129,15 @@
                                         </attributes>
                                     </fragment>
                                 </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal Ttitle" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="268" translatesAutoresizingMaskIntoConstraints="NO" id="IN5-7b-XOI">
+                                <rect key="frame" x="192" y="84" width="388" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="HW6-Ix-fXb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -163,7 +162,6 @@
                             <constraint firstItem="fmQ-s3-2dd" firstAttribute="top" secondItem="hg6-RI-WNO" secondAttribute="bottom" constant="8" symbolic="YES" id="zji-en-1a6"/>
                             <constraint firstItem="wZe-xQ-heM" firstAttribute="centerX" secondItem="fmQ-s3-2dd" secondAttribute="centerX" id="ztf-eH-1cb"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <connections>
                         <outlet property="mealDescriptionLabel" destination="fmQ-s3-2dd" id="4sc-mk-jTf"/>
@@ -177,7 +175,7 @@
             </objects>
             <point key="canvasLocation" x="2705" y="-625"/>
         </scene>
-        <!--Navigation Controller - Ястия-->
+        <!--Ястия-->
         <scene sceneID="sWU-3D-c2u">
             <objects>
                 <navigationController id="mmZ-kW-ooK" sceneMemberID="viewController">
@@ -194,7 +192,7 @@
             </objects>
             <point key="canvasLocation" x="1379" y="-609"/>
         </scene>
-        <!--Order Details View Controller - Поръчка-->
+        <!--Поръчка-->
         <scene sceneID="bD2-lp-ulK">
             <objects>
                 <viewController id="odz-F3-ekg" customClass="OrderDetailsViewController" sceneMemberID="viewController">
@@ -203,11 +201,11 @@
                         <viewControllerLayoutGuide type="bottom" id="aL2-dh-XgA"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="mJQ-lO-PLJ">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkz-CJ-hoP">
-                                <rect key="frame" x="20" y="385" width="216" height="44"/>
+                                <rect key="frame" x="20" y="505" width="276" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="PJO-JP-RDT"/>
                                 </constraints>
@@ -219,13 +217,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Общо:" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="440" translatesAutoresizingMaskIntoConstraints="NO" id="xfI-XF-m8f">
-                                <rect key="frame" x="20" y="309" width="440" height="29"/>
+                                <rect key="frame" x="20" y="309" width="560" height="29"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dgo-fP-b4p">
-                                <rect key="frame" x="244" y="385" width="216" height="44"/>
+                                <rect key="frame" x="304" y="505" width="276" height="44"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="CVu-VS-Yf9"/>
                                 </constraints>
@@ -243,10 +241,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="zJp-Oe-0ls">
-                                <rect key="frame" x="0.0" y="0.0" width="480" height="301"/>
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="301"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" ambiguous="YES" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="mealCell" rowHeight="72" id="LRk-Yx-JVW" customClass="OrderDetailsTableViewCell">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="checkmark" indentationWidth="10" reuseIdentifier="mealCell" rowHeight="72" id="LRk-Yx-JVW" customClass="OrderDetailsTableViewCell">
                                         <rect key="frame" x="0.0" y="0.0" width="480" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LRk-Yx-JVW" id="FxV-6z-dsI">
@@ -293,7 +291,7 @@
                                 </prototypes>
                             </tableView>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7um-Ez-DdO">
-                                <rect key="frame" x="20" y="346" width="51" height="31"/>
+                                <rect key="frame" x="20" y="466" width="51" height="31"/>
                             </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -320,7 +318,6 @@
                             <constraint firstItem="aL2-dh-XgA" firstAttribute="top" secondItem="dgo-fP-b4p" secondAttribute="bottom" constant="2" id="oBP-DM-9ij"/>
                             <constraint firstItem="xfI-XF-m8f" firstAttribute="top" secondItem="zJp-Oe-0ls" secondAttribute="bottom" constant="8" id="pJa-qU-Ums"/>
                         </constraints>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     </view>
                     <navigationItem key="navigationItem" title="Поръчка" id="cQL-pv-sJC"/>
                     <connections>
@@ -334,45 +331,74 @@
             </objects>
             <point key="canvasLocation" x="2071" y="34"/>
         </scene>
-        <!--View Controller - new-->
+        <!--Профил-->
         <scene sceneID="WAz-eb-Q9A">
             <objects>
-                <viewController title="new" id="5Xt-Uk-Vby" sceneMemberID="viewController">
+                <viewController title="Профил" id="5Xt-Uk-Vby" userLabel="Профил" customClass="ProfileViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="gNR-ex-78q"/>
                         <viewControllerLayoutGuide type="bottom" id="Bxb-DT-0kg"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="b7M-u7-y7m">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Име" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1y-qg-5g0">
+                                <rect key="frame" x="16" y="221" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Е-мейл" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f2t-el-ySH">
+                                <rect key="frame" x="16" y="250" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Потребителско име" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZq-F9-bJu">
+                                <rect key="frame" x="125" y="221" width="466" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Е-мейл" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hFE-5h-1rz">
+                                <rect key="frame" x="125" y="250" width="466" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uzu-L9-d6y">
+                                <rect key="frame" x="16" y="49" width="164" height="164"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Профил" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aks-7r-nGU">
+                                <rect key="frame" x="16" y="20" width="568" height="21"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                        <constraints>
+                            <constraint firstItem="hFE-5h-1rz" firstAttribute="height" secondItem="f2t-el-ySH" secondAttribute="height" id="3Oc-Rb-oOh"/>
+                            <constraint firstItem="uzu-L9-d6y" firstAttribute="leading" secondItem="b7M-u7-y7m" secondAttribute="leadingMargin" id="Qbh-Aj-kV0"/>
+                            <constraint firstItem="k1y-qg-5g0" firstAttribute="top" secondItem="uzu-L9-d6y" secondAttribute="bottom" constant="8" id="dGB-Xq-1r9"/>
+                            <constraint firstItem="f2t-el-ySH" firstAttribute="top" secondItem="k1y-qg-5g0" secondAttribute="bottom" constant="8" id="jyB-cV-TIz"/>
+                            <constraint firstItem="aks-7r-nGU" firstAttribute="leading" secondItem="b7M-u7-y7m" secondAttribute="leadingMargin" id="kjq-8G-kmG"/>
+                            <constraint firstItem="f2t-el-ySH" firstAttribute="leading" secondItem="b7M-u7-y7m" secondAttribute="leadingMargin" id="mAg-Ei-P23"/>
+                            <constraint firstItem="hFE-5h-1rz" firstAttribute="centerY" secondItem="f2t-el-ySH" secondAttribute="centerY" id="rbW-Jl-grR"/>
+                            <constraint firstItem="k1y-qg-5g0" firstAttribute="leading" secondItem="b7M-u7-y7m" secondAttribute="leadingMargin" id="uSZ-q5-Hie"/>
+                            <constraint firstItem="aks-7r-nGU" firstAttribute="trailing" secondItem="b7M-u7-y7m" secondAttribute="trailingMargin" id="vaE-Re-PpA"/>
+                            <constraint firstItem="k1y-qg-5g0" firstAttribute="centerY" secondItem="qZq-F9-bJu" secondAttribute="centerY" id="y5h-3S-w8k"/>
+                            <constraint firstItem="aks-7r-nGU" firstAttribute="top" secondItem="gNR-ex-78q" secondAttribute="bottom" id="zmK-Ou-f8X"/>
+                            <constraint firstItem="uzu-L9-d6y" firstAttribute="top" secondItem="aks-7r-nGU" secondAttribute="bottom" constant="8" id="zx5-F5-Vfo"/>
+                        </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="new" id="pHP-N7-ZxT"/>
+                    <tabBarItem key="tabBarItem" title="Профил" id="pHP-N7-ZxT"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MuC-3q-oN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1379" y="1118"/>
-        </scene>
-        <!--View Controller - Profile-->
-        <scene sceneID="BDS-8F-zKF">
-            <objects>
-                <viewController title="Profile" id="10o-wq-ntc" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="2xa-mE-zlI"/>
-                        <viewControllerLayoutGuide type="bottom" id="bd1-ge-UsI"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="XcF-BQ-C3v">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Профил" image="profile.png" id="Fmc-Uu-AH6"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="mAC-VT-0OH" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1386" y="582"/>
+            <point key="canvasLocation" x="758" y="990"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="jJy-19-NSo">
@@ -387,7 +413,6 @@
                     <connections>
                         <segue destination="mmZ-kW-ooK" kind="relationship" relationship="viewControllers" id="7Ah-3P-ZNJ"/>
                         <segue destination="7fs-RB-7pN" kind="relationship" relationship="viewControllers" id="WYi-3u-jD1"/>
-                        <segue destination="10o-wq-ntc" kind="relationship" relationship="viewControllers" id="ofc-wi-WOW"/>
                         <segue destination="5Xt-Uk-Vby" kind="relationship" relationship="viewControllers" id="dLR-3f-4XZ"/>
                     </connections>
                 </tabBarController>
@@ -395,7 +420,7 @@
             </objects>
             <point key="canvasLocation" x="721" y="-83"/>
         </scene>
-        <!--Navigation Controller - Поръчка-->
+        <!--Поръчка-->
         <scene sceneID="f8V-Gy-alu">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7fs-RB-7pN" sceneMemberID="viewController">
@@ -418,6 +443,5 @@
     <resources>
         <image name="meal.png" width="30" height="29"/>
         <image name="order.png" width="30" height="30"/>
-        <image name="profile.png" width="24" height="30"/>
     </resources>
 </document>
