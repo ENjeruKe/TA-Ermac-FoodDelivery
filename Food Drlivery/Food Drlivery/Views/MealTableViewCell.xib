@@ -57,7 +57,7 @@
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="mealImage" destination="2Qv-dL-2jb" id="Zgb-QB-oVL"/>
+                <outlet property="mealImage" destination="2Qv-dL-2jb" id="5Cw-YM-8CP"/>
                 <outlet property="mealTitle" destination="5iv-RR-ir7" id="wK2-TS-OUd"/>
                 <outlet property="mealTypes" destination="B6Z-e5-L6Z" id="V1B-9c-OhE"/>
             </connections>

@@ -1,58 +1,56 @@
 //
-//  MealsViewController.m
+//  OrderDetailsViewController.m
 //  Food Drlivery
 //
-//  Created by Borislav Boyadzhiev on 11/7/14.
+//  Created by Admin on 11/7/14.
 //  Copyright (c) 2014 Borislav Boyadzhiev. All rights reserved.
 //
 
-#import "MealsViewController.h"
-#import "MealTableViewCellController.h"
+#import "OrderDetailsViewController.h"
 #import "Meal.h"
-#import "MealDetailsViewController.h"
+#import "OrderDetailsTableViewCell.h"
 
-@interface MealsViewController ()
-{
+@interface OrderDetailsViewController (){
     NSArray *titles;
     NSArray *images;
-    NSMutableArray *mealsData;
+    NSMutableArray *orderMeals;
     Meal *tempMeal;
 }
 @end
 
-@implementation MealsViewController
+@implementation OrderDetailsViewController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         // Custom initialization
-        
-       
     }
     return self;
 }
 
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    UINib *nib = [UINib nibWithNibName:@"MealTableViewCell"  bundle:nil];
-    [self.mealsTableView registerNib:nib forCellReuseIdentifier:@"MealTableViewCellController"];
     // Do any additional setup after loading the view.
-    mealsData = [[NSMutableArray alloc] init];
+    orderMeals = [[NSMutableArray alloc] init];
     tempMeal = [[Meal alloc] init];
-    
+    [self.mealsInOrderTableView setDelegate:self];
+    [self.mealsInOrderTableView setDataSource:self];
+    [self.orderTypeSwitch addTarget:self action:@selector(setOrderType:) forControlEvents:UIControlEventValueChanged];
     [self addFakeData];
-    
-    [self.mealsTableView setDelegate:self];
-    [self.mealsTableView setDataSource:self];
+    NSNumber *total = 0;
+    for (Meal *meal in orderMeals) {
+        total = @( [total floatValue] + [meal.price floatValue]);
+    }
+    self.totalPriceLabel.text = [NSString stringWithFormat:@"Обща сума: %@ лв",[total stringValue]];
 }
 
--(void) addRealData{
-    
-    
-   
+- (void)setOrderType:(id)sender
+{
+    BOOL state = [sender isOn];
+    NSString *orderTypeText = state == YES ? @"Поръчка до адрес" : @"Поръчка до кухня";
+    self.orderTypeLabel.text = orderTypeText;
 }
 
 - (void)addFakeData
@@ -73,10 +71,9 @@
         // NOT CORRECT - SAMPLE DATA
         meal.image = imageFile;
         meal.price = [NSNumber numberWithDouble:(i*3.14)];
-        [mealsData addObject:meal];
+        [orderMeals addObject:meal];
     }
 }
-
 
 - (void)didReceiveMemoryWarning
 {
@@ -86,62 +83,38 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [titles count];
+    return [orderMeals count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"MealTableViewCellController";
+    static NSString *cellIdentifier = @"mealCell";
     
-   MealTableViewCellController *cell = (MealTableViewCellController *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    OrderDetailsTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 
-    tempMeal = (Meal *)[mealsData objectAtIndex:indexPath.row];
+    if (!cell) {
+        cell = [[OrderDetailsTableViewCell alloc] initWithStyle: UITableViewCellStyleDefault
+                                             reuseIdentifier:cellIdentifier];
+        NSLog(@"CELL");
+    }
+
     
-//    PFImageView *mealImage = [[PFImageView alloc] init];
-//    cell.mealImage = mealImage;
-//    mealImage.image = [UIImage imageNamed:@"emptyplate.jpg"]; // placeholder image
-//    mealImage.file = (PFFile *)tempMeal.image;
-//    [mealImage loadInBackground];
-    
-    
+    tempMeal = (Meal *)[orderMeals objectAtIndex:indexPath.row];
     [tempMeal.image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             UIImage *image = [UIImage imageWithData:data];
             // image can now be set on a UIImageView
             cell.mealImage.image = image;
+         //   cell.mealImage.image = image;
         }
     }];
-    cell.mealTitle.text = tempMeal.title;
-    cell.mealTypes.text =  @"Десерт, Ястие ...";
+   
+    cell.mealTitleLabel.text = tempMeal.title;
+    cell.mealPriceLabel.text = [tempMeal.price stringValue];
     // cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 90;
-}
-
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    //UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    //cell.accessoryType = UITableViewCellAccessoryCheckmark;
-    
-    [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    self.selected = [mealsData objectAtIndex:indexPath.row];
-    [self performSegueWithIdentifier:@"mealDetailsSegue" sender:self];
-}
-
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([[segue identifier] isEqualToString:@"mealDetailsSegue"])
-    {
-        // Get reference to the destination view controller
-        MealDetailsViewController *mealDetailsVc = [segue destinationViewController];
-        // Pass any objects to the view controller here, like...
-        NSLog(@"Going to meal %@ details", self.selected.title);
-        mealDetailsVc.selectedMeal = self.selected;
-    }
-}
 
 /*
 #pragma mark - Navigation
@@ -154,4 +127,9 @@
 }
 */
 
+- (IBAction)cancelOrderButtonAction:(id)sender {
+}
+
+- (IBAction)performOrderButtonAction:(id)sender {
+}
 @end

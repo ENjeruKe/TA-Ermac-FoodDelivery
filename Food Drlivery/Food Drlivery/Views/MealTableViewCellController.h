@@ -7,10 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Parse/Parse.h>
 
 @interface MealTableViewCellController : UITableViewCell
 @property (weak, nonatomic) IBOutlet UILabel *mealTitle;
 @property (weak, nonatomic) IBOutlet UILabel *mealTypes;
 @property (weak, nonatomic) IBOutlet UIImageView *mealImage;
+//@property (weak, nonatomic) IBOutlet PFImageView *mealImage;
 
 @end

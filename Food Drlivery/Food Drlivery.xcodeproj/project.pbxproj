@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		840EFD8B1A0D727700C191A3 /* OrderDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 840EFD8A1A0D727700C191A3 /* OrderDetailsViewController.m */; };
 		841DED261A0BF91300252215 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 841DED251A0BF91300252215 /* profile.png */; };
 		844659251A0A3C6A00DD426C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 844659241A0A3C6A00DD426C /* main.m */; };
 		844659281A0A3C6A00DD426C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 844659271A0A3C6A00DD426C /* AppDelegate.m */; };
@@ -63,6 +64,8 @@
 		84ADBB711A0C3AC700584A7F /* thai_shrimp_cake.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84ADBB611A0C3AC700584A7F /* thai_shrimp_cake.jpg */; };
 		84ADBB721A0C3AC700584A7F /* vegetable_curry.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84ADBB621A0C3AC700584A7F /* vegetable_curry.jpg */; };
 		84ADBB731A0C3AC700584A7F /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84ADBB631A0C3AC700584A7F /* white_chocolate_donut.jpg */; };
+		84EB3F7C1A0D931000049476 /* emptyplate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84EB3F7B1A0D931000049476 /* emptyplate.jpg */; };
+		84F77AC51A0D7A61006DBE00 /* OrderDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +79,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		840EFD891A0D727700C191A3 /* OrderDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailsViewController.h; path = Views/OrderDetailsViewController.h; sourceTree = "<group>"; };
+		840EFD8A1A0D727700C191A3 /* OrderDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailsViewController.m; path = Views/OrderDetailsViewController.m; sourceTree = "<group>"; };
 		841DED251A0BF91300252215 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = profile.png; path = Images.xcassets/profile.png; sourceTree = "<group>"; };
 		8446591F1A0A3C6A00DD426C /* Food Drlivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Food Drlivery.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		844659231A0A3C6A00DD426C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -146,6 +151,9 @@
 		84ADBB611A0C3AC700584A7F /* thai_shrimp_cake.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thai_shrimp_cake.jpg; sourceTree = "<group>"; };
 		84ADBB621A0C3AC700584A7F /* vegetable_curry.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = vegetable_curry.jpg; sourceTree = "<group>"; };
 		84ADBB631A0C3AC700584A7F /* white_chocolate_donut.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = white_chocolate_donut.jpg; sourceTree = "<group>"; };
+		84EB3F7B1A0D931000049476 /* emptyplate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = emptyplate.jpg; path = Images.xcassets/emptyplate.jpg; sourceTree = "<group>"; };
+		84F77AC31A0D7A61006DBE00 /* OrderDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailsTableViewCell.h; path = Views/OrderDetailsTableViewCell.h; sourceTree = "<group>"; };
+		84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailsTableViewCell.m; path = Views/OrderDetailsTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,6 +234,7 @@
 		844659221A0A3C6A00DD426C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				84EB3F7B1A0D931000049476 /* emptyplate.jpg */,
 				84ADBB531A0C3AC700584A7F /* samples */,
 				841DED251A0BF91300252215 /* profile.png */,
 				84A177431A0BD4D500EB4198 /* meal.png */,
@@ -299,6 +308,10 @@
 		84A361E71A0B7F0C0084B520 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				84F77AC31A0D7A61006DBE00 /* OrderDetailsTableViewCell.h */,
+				84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */,
+				840EFD891A0D727700C191A3 /* OrderDetailsViewController.h */,
+				840EFD8A1A0D727700C191A3 /* OrderDetailsViewController.m */,
 				84A44B131A0CD3000002D8D6 /* MealDetailsViewController.h */,
 				84A44B141A0CD3000002D8D6 /* MealDetailsViewController.m */,
 				84ADBB4B1A0C2B4D00584A7F /* MealsViewController.h */,
@@ -424,6 +437,7 @@
 				84ADBB6C1A0C3AC700584A7F /* instant_noodle_with_egg.jpg in Resources */,
 				84A361EF1A0B8BB10084B520 /* signupbg.png in Resources */,
 				84A361EE1A0B8BB10084B520 /* loginbg.jpg in Resources */,
+				84EB3F7C1A0D931000049476 /* emptyplate.jpg in Resources */,
 				84ADBB521A0C338B00584A7F /* MealTableViewCell.xib in Resources */,
 				84A177451A0BD4D500EB4198 /* meal.png in Resources */,
 				84ADBB6F1A0C3AC700584A7F /* noodle_with_bbq_pork.jpg in Resources */,
@@ -456,6 +470,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				840EFD8B1A0D727700C191A3 /* OrderDetailsViewController.m in Sources */,
 				84ADBB511A0C338B00584A7F /* MealTableViewCellController.m in Sources */,
 				84A6DAB01A0AA4590015BABE /* Meal.m in Sources */,
 				8446592B1A0A3C6A00DD426C /* Food_Drlivery.xcdatamodeld in Sources */,
@@ -466,6 +481,7 @@
 				84A361E61A0B7A140084B520 /* Order.m in Sources */,
 				8446592E1A0A3C6A00DD426C /* ViewController.m in Sources */,
 				844659251A0A3C6A00DD426C /* main.m in Sources */,
+				84F77AC51A0D7A61006DBE00 /* OrderDetailsTableViewCell.m in Sources */,
 				84A44B151A0CD3000002D8D6 /* MealDetailsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,4 +11,8 @@
 @interface Order : PFObject<PFSubclassing>
 +(NSString *)parseClassName;
 
+@property (retain) NSString *orderId;
+@property (retain) NSNumber *forHome;
+@property (retain) NSNumber *total;
+
 @end
