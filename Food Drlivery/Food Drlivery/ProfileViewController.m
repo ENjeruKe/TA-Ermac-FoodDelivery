@@ -20,6 +20,9 @@
     // Do any additional setup after loading the view.
     //PFQuery* queryPhoto = [PFQuery queryWithClassName:@"_User"];
     PFQuery *queryPhoto = [PFUser query];
+    //force refresh in order to get the data if it is updated
+    [[PFUser currentUser] fetchInBackground];
+    
     [queryPhoto whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
     [queryPhoto findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         // Verify if there are no errors
@@ -32,6 +35,8 @@
            // UIImageView* currentUserImage = [[UIImageView alloc]initWithImage:[UIImage imageWithData:currentUserPhoto.getData]];
            // self.profilePic = currentUserImage;
                  self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
+                 self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
+                 self.profilePic.clipsToBounds = YES;
              }
         }else {
             NSLog(@"ERROR!!!");
@@ -45,11 +50,19 @@
     
     self.username.text = [PFUser currentUser].username;
     self.email.text =[PFUser currentUser].email;
+    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+-(IBAction)editProfileButton:(id)sender {
+    // load EditProfileViewController
+    UIStoryboard *storyboard = self.storyboard;
+    UIViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
+    [self presentViewController:svc animated:NO completion:nil];
 }
 
 /*

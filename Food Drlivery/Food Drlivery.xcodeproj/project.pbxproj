@@ -331,6 +331,8 @@
 				84ADBB501A0C338B00584A7F /* MealTableViewCell.xib */,
 				CEDEDA3F1A0E45670098A613 /* ProfileViewController.h */,
 				CEDEDA401A0E45670098A613 /* ProfileViewController.m */,
+				CE7840C51A0ED6E2002449A4 /* EditProfileViewController.h */,
+				CE7840C61A0ED6E2002449A4 /* EditProfileViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -495,6 +497,7 @@
 			files = (
 				840EFD8B1A0D727700C191A3 /* OrderDetailsViewController.m in Sources */,
 				84ADBB511A0C338B00584A7F /* MealTableViewCellController.m in Sources */,
+				CE7840C71A0ED6E2002449A4 /* EditProfileViewController.m in Sources */,
 				84A6DAB01A0AA4590015BABE /* Meal.m in Sources */,
 				8446592B1A0A3C6A00DD426C /* Food_Drlivery.xcdatamodeld in Sources */,
 				CEDEDA411A0E45670098A613 /* ProfileViewController.m in Sources */,
