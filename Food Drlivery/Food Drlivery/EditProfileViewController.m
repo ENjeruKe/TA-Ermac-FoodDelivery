@@ -28,6 +28,8 @@
                 self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
                 self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
                 self.profilePic.clipsToBounds = YES;
+            
+                self.address.text = userInfo[@"address"];
         }else {
             NSLog(@"ERROR!!!");
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -91,7 +93,8 @@
     
 }
 
-- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
+- (void)imagePickerController:(UIImagePickerController *)picker
+didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
     self.profilePic.image = chosenImage;
@@ -136,6 +139,56 @@
                 }
             }];
 
+        }else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                     message:errorString
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"Ok"
+                                                           otherButtonTitles:nil];
+            [errorAlertView show];
+        }
+    }];
+    
+}
+
+- (IBAction)addCurrentLocation:(id)sender {
+    
+    [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
+        if (!error) {
+            //NSLog(@"User is currently at %f, %f", geoPoint.latitude, geoPoint.longitude);
+            
+            // Reverse Geocoding
+            CLLocation *location = [[CLLocation alloc] initWithLatitude:geoPoint.latitude
+                                                              longitude:geoPoint.longitude];
+            
+            CLGeocoder *geocoder = [[CLGeocoder alloc] init];
+            [geocoder reverseGeocodeLocation:location
+                           completionHandler:^(NSArray *placemarks, NSError *error) {
+                NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
+                if (error == nil && [placemarks count] > 0) {
+                    NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:[placemarks count]];
+                    for (CLPlacemark *placemark in placemarks) {
+                        [tempArray addObject:[NSString stringWithFormat:@"%@ %@, %@ %@, %@, %@",
+                                              placemark.subThoroughfare == nil ? @"" : placemark.subThoroughfare,
+                                              placemark.thoroughfare== nil ? @"" : placemark.thoroughfare,
+                                              placemark.postalCode== nil ? @"" : placemark.postalCode,
+                                              placemark.locality== nil ? @"" : placemark.locality,
+                                              placemark.administrativeArea== nil ? @"" : placemark.administrativeArea,
+                                              placemark.country== nil ? @"" : placemark.country]];
+                    }
+                  //  addressOutput = [tempArray copy];
+                   // NSLog(@"%@", [tempArray description]);
+                    self.address.text = [tempArray description];
+                }
+                else {
+                  //  addressOutput = nil;
+                    NSLog(@"%@", error.debugDescription);
+                }
+            }];
+            
+            [[PFUser currentUser] setObject:geoPoint forKey:@"currentLocation"];
+            [[PFUser currentUser] saveInBackground];
         }else {
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
