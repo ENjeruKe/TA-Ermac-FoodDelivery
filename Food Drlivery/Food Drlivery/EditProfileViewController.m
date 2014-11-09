@@ -18,19 +18,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    PFQuery *queryPhoto = [PFUser query];
-    [queryPhoto whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+    PFQuery *userQuery = [PFUser query];
     
-    [queryPhoto findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    [userQuery getObjectInBackgroundWithId:[PFUser currentUser].objectId
+                                     block:^(PFObject *userInfo, NSError *error) {
         if (!error) {
-            if (objects.count > 0) {
-                PFObject* profilePhotoObject = objects[0];
-                PFFile* currentUserPhoto = (PFFile *)[profilePhotoObject objectForKey:@"profilePic"];
+                PFFile* currentUserPhoto = (PFFile *)[userInfo objectForKey:@"profilePic"];
 
                 self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
                 self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
                 self.profilePic.clipsToBounds = YES;
-            }
         }else {
             NSLog(@"ERROR!!!");
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -45,6 +42,7 @@
     
     
     self.username.text = [PFUser currentUser].username;
+    self.password.text =[PFUser currentUser].password;
     self.email.text =[PFUser currentUser].email;
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
@@ -75,8 +73,6 @@
 */
 
 - (IBAction)takeProfilePic:(id)sender {
-    NSLog(@"PIC2");
-
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
@@ -86,7 +82,6 @@
 }
 
 - (IBAction)selectProfilePic:(id)sender {
-    NSLog(@"PIC");
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
@@ -108,6 +103,50 @@
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker {
     
     [picker dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (IBAction)updateProfileButton:(id)sender {
+    PFQuery *userQuery = [PFUser query];
+    //force refresh in order to get the data if it is updated
+    [[PFUser currentUser] fetchInBackground];
+    
+    [userQuery getObjectInBackgroundWithId:[PFUser currentUser].objectId
+                                     block:^(PFObject *userInfo, NSError *error) {
+        if (!error) {
+           // userInfo[@"profilePic"] = self.profilePic.image;
+            userInfo[@"email"] = self.email.text;
+            userInfo[@"username"] = self.username.text;
+            
+            //TODO check if this is the right way to update
+            [PFUser currentUser].password = self.password.text;
+            
+            [userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if (succeeded) {
+                    UIStoryboard *storyboard = self.storyboard;
+                    UIViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+                    [self presentViewController:svc animated:NO completion:nil];
+                } else{
+                    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                             message:errorString
+                                                                            delegate:nil
+                                                                   cancelButtonTitle:@"Ok"
+                                                                   otherButtonTitles:nil];
+                    [errorAlertView show];
+                }
+            }];
+
+        }else {
+            NSString *errorString = [[error userInfo] objectForKey:@"error"];
+            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
+                                                                     message:errorString
+                                                                    delegate:nil
+                                                           cancelButtonTitle:@"Ok"
+                                                           otherButtonTitles:nil];
+            [errorAlertView show];
+        }
+    }];
+    
 }
 
 @end

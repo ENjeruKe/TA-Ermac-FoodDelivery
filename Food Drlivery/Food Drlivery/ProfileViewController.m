@@ -8,8 +8,6 @@
 
 #import <Parse/Parse.h>
 #import "ProfileViewController.h"
-#import "EditProfileViewController.h"
-
 
 @interface ProfileViewController ()
 
@@ -22,6 +20,9 @@
     // Do any additional setup after loading the view.
     //PFQuery* queryPhoto = [PFQuery queryWithClassName:@"_User"];
     PFQuery *queryPhoto = [PFUser query];
+    //force refresh in order to get the data if it is updated
+    [[PFUser currentUser] fetchInBackground];
+    
     [queryPhoto whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
     [queryPhoto findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         // Verify if there are no errors
@@ -50,7 +51,6 @@
     self.username.text = [PFUser currentUser].username;
     self.email.text =[PFUser currentUser].email;
     
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,8 +61,8 @@
 -(IBAction)editProfileButton:(id)sender {
     // load EditProfileViewController
     UIStoryboard *storyboard = self.storyboard;
-    EditProfileViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
-    [self presentViewController:svc animated:YES completion:nil];
+    UIViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
+    [self presentViewController:svc animated:NO completion:nil];
 }
 
 /*

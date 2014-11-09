@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 - (IBAction)selectProfilePic:(id)sender;
 - (IBAction)takeProfilePic:(id)sender;
-@property (weak, nonatomic) IBOutlet UIButton *updateProfileButton;
+- (IBAction)updateProfileButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *password;
