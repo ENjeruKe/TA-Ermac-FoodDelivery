@@ -11,8 +11,8 @@
 @interface EditProfileViewController : UIViewController<UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
-@property (weak, nonatomic) IBOutlet UIButton *selectProfilePic;
-@property (weak, nonatomic) IBOutlet UIButton *takeProfilePic;
+- (IBAction)selectProfilePic:(id)sender;
+- (IBAction)takeProfilePic:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *updateProfileButton;
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *email;

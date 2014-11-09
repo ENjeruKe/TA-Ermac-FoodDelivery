@@ -74,8 +74,9 @@
 }
 */
 
-- (IBAction)takeProfilePic:(UIButton *)sender {
-    
+- (IBAction)takeProfilePic:(id)sender {
+    NSLog(@"PIC2");
+
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
@@ -84,15 +85,14 @@
     [self presentViewController:picker animated:YES completion:NULL];
 }
 
-- (IBAction)selectProfilePic:(UIButton *)sender {
-    
+- (IBAction)selectProfilePic:(id)sender {
+    NSLog(@"PIC");
     UIImagePickerController *picker = [[UIImagePickerController alloc] init];
     picker.delegate = self;
     picker.allowsEditing = YES;
     picker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     
     [self presentViewController:picker animated:YES completion:NULL];
-    
     
 }
 

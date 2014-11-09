@@ -467,14 +467,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FCL-Pl-h5o">
-                                <rect key="frame" x="188" y="64" width="396" height="29"/>
-                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
-                                <state key="normal" title="Изберете избражение">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fgy-Br-T26">
                                 <rect key="frame" x="188" y="170" width="396" height="29"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -482,6 +474,9 @@
                                 <state key="normal" title="Ново избражение">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="takeProfilePic:" destination="tXW-AE-O4b" eventType="touchUpInside" id="aMf-ym-rka"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-y2-NwZ">
                                 <rect key="frame" x="29" y="344" width="74" height="30"/>
@@ -498,6 +493,12 @@
                                     <constraint firstAttribute="height" constant="164" id="ypR-Co-yei"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Парола" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-LD-8v2">
+                                <rect key="frame" x="16" y="258" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Парола" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6b-LV-5lN">
                                 <rect key="frame" x="125" y="255" width="459" height="30"/>
                                 <constraints>
@@ -506,12 +507,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Парола" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-LD-8v2">
-                                <rect key="frame" x="16" y="258" width="101" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FCL-Pl-h5o">
+                                <rect key="frame" x="188" y="64" width="396" height="29"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                <state key="normal" title="Изберете избражение">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="selectProfilePic:" destination="tXW-AE-O4b" eventType="touchUpInside" id="ov9-bI-noP"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -553,8 +559,6 @@
                         <outlet property="email" destination="o29-Bz-YBU" id="Oa7-SW-kYu"/>
                         <outlet property="password" destination="k6b-LV-5lN" id="Gsg-Lh-N0I"/>
                         <outlet property="profilePic" destination="X0g-nb-z8e" id="UQA-db-BAZ"/>
-                        <outlet property="selectProfilePic" destination="FCL-Pl-h5o" id="fb0-yv-CZT"/>
-                        <outlet property="takeProfilePic" destination="fgy-Br-T26" id="ALD-n5-asJ"/>
                         <outlet property="updateProfileButton" destination="ZE1-y2-NwZ" id="Zx8-CC-WEv"/>
                         <outlet property="username" destination="AES-Fc-0kC" id="hnd-Mx-sZA"/>
                     </connections>
