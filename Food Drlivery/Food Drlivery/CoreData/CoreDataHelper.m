@@ -13,6 +13,16 @@
 
 NSString *storeFilename = @"Food_Drlivery.sqlite";
 
+static CoreDataHelper *sharedInstance = nil;
+
++(CoreDataHelper *)coreDataStorageInastance{
+    if (sharedInstance == nil) {
+        sharedInstance = [[CoreDataHelper alloc] init];
+        [sharedInstance setupCoreData];
+    }
+   
+    return sharedInstance;
+}
 - (id)init
 {
     NSLog(@"Running %@ '%@'", self.class, NSStringFromSelector(_cmd));

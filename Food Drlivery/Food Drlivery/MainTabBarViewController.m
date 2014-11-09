@@ -46,8 +46,8 @@
     [item1 setSelectedImage:orderIcon];
     [item2 setImage:profileIcon];
     [item2 setSelectedImage:profileIcon];
-    _cdHelper = [[CoreDataHelper alloc] init];
-    [_cdHelper setupCoreData];
+    
+    _cdHelper = [CoreDataHelper coreDataStorageInastance];
     [self checkForUnfinishedOrder];
 }
 

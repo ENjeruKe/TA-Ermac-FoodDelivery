@@ -16,6 +16,7 @@
 @property(nonatomic, strong) NSPersistentStoreCoordinator* coordinator;
 @property(nonatomic, strong) NSPersistentStore* store;
 
++(CoreDataHelper*) coreDataStorageInastance;
 - (void)saveContext;
 - (void)setupCoreData;
 
