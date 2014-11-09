@@ -14,22 +14,16 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2Qv-dL-2jb">
-                        <rect key="frame" x="7" y="5" width="79" height="79"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Qv-dL-2jb">
+                        <rect key="frame" x="7" y="6" width="79" height="79"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="2Qv-dL-2jb" secondAttribute="height" multiplier="1:1" id="nsc-6I-4Xl"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meal description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="179" translatesAutoresizingMaskIntoConstraints="NO" id="B6Z-e5-L6Z">
-                        <rect key="frame" x="94" y="44" width="179" height="45"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iv-RR-ir7">
-                        <rect key="frame" x="94" y="6" width="179" height="30"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5iv-RR-ir7">
+                        <rect key="frame" x="94" y="8" width="179" height="60"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="30" id="ntU-t4-oPa"/>
+                            <constraint firstAttribute="height" constant="60" id="aR5-bG-mLG"/>
                         </constraints>
                         <attributedString key="attributedText">
                             <fragment content="Meal title">
@@ -42,12 +36,18 @@
                         </attributedString>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Meal description" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="179" translatesAutoresizingMaskIntoConstraints="NO" id="B6Z-e5-L6Z">
+                        <rect key="frame" x="94" y="64" width="179" height="27"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="2Qv-dL-2jb" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="BDh-pE-Tq5"/>
-                    <constraint firstItem="B6Z-e5-L6Z" firstAttribute="top" secondItem="5iv-RR-ir7" secondAttribute="bottom" constant="8" symbolic="YES" id="Lyt-OL-Bd7"/>
+                    <constraint firstItem="B6Z-e5-L6Z" firstAttribute="top" secondItem="5iv-RR-ir7" secondAttribute="bottom" constant="-4" id="Lyt-OL-Bd7"/>
                     <constraint firstItem="5iv-RR-ir7" firstAttribute="leading" secondItem="2Qv-dL-2jb" secondAttribute="trailing" constant="8" symbolic="YES" id="R6Q-DC-Kei"/>
-                    <constraint firstAttribute="bottom" secondItem="B6Z-e5-L6Z" secondAttribute="bottom" id="URV-ui-x9X"/>
+                    <constraint firstAttribute="bottom" secondItem="B6Z-e5-L6Z" secondAttribute="bottom" constant="-1" id="URV-ui-x9X"/>
                     <constraint firstItem="5iv-RR-ir7" firstAttribute="trailing" secondItem="B6Z-e5-L6Z" secondAttribute="trailing" id="Vuq-mh-39z"/>
                     <constraint firstItem="5iv-RR-ir7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="6" id="cVX-Bw-DLu"/>
                     <constraint firstItem="B6Z-e5-L6Z" firstAttribute="leading" secondItem="2Qv-dL-2jb" secondAttribute="trailing" constant="8" symbolic="YES" id="nZD-ub-6Ck"/>
@@ -61,7 +61,7 @@
                 <outlet property="mealTitle" destination="5iv-RR-ir7" id="wK2-TS-OUd"/>
                 <outlet property="mealTypes" destination="B6Z-e5-L6Z" id="V1B-9c-OhE"/>
             </connections>
-            <point key="canvasLocation" x="424" y="307"/>
+            <point key="canvasLocation" x="424" y="304"/>
         </tableViewCell>
     </objects>
 </document>
