@@ -47,9 +47,7 @@
     [self.orderTypeSwitch addTarget:self action:@selector(setOrderType:) forControlEvents:UIControlEventValueChanged];
     self.mealsInOrderTableView.allowsMultipleSelectionDuringEditing = NO;
     
-    //[self addFakeData];
-    _cdHelper = [[CoreDataHelper alloc] init];
-    [_cdHelper setupCoreData];
+    _cdHelper = [CoreDataHelper coreDataStorageInastance];
     
 }
 -(void) viewDidAppear:(BOOL)animated{

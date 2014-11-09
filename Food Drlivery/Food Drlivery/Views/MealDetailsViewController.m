@@ -36,9 +36,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    _cdHelper = [[CoreDataHelper alloc] init];
-    [_cdHelper setupCoreData];
+
+    _cdHelper = [CoreDataHelper coreDataStorageInastance];
      self.defaults = [NSUserDefaults standardUserDefaults];
     self.mealTitleLabel.text = self.selectedMeal.title;
     self.mealTitleLabel.numberOfLines = 0;
