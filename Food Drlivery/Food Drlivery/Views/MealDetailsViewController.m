@@ -10,7 +10,9 @@
 #import "CoreDataHelper.h"
 #import "OrderMeal.h"
 
-@interface MealDetailsViewController ()
+@interface MealDetailsViewController (){
+    unsigned long orderMealsCount;
+}
 
 @property (nonatomic, strong) NSUserDefaults *defaults;
 @property(nonatomic, strong) CoreDataHelper* cdHelper;
@@ -34,6 +36,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    _cdHelper = [[CoreDataHelper alloc] init];
+    [_cdHelper setupCoreData];
      self.defaults = [NSUserDefaults standardUserDefaults];
     self.mealTitleLabel.text = self.selectedMeal.title;
     self.mealTitleLabel.numberOfLines = 0;
@@ -50,7 +55,7 @@
     self.mealPriceLabel.text = [NSString stringWithFormat:@"Цена: %@ лв.", self.selectedMeal.price];
     self.mealDescriptionLabel.text = self.selectedMeal.mealDescription;
     
-    NSLog(@"Selected meal: %@", self.selectedMeal.title);
+    NSLog(@"Selected meal: %@", self.selectedMeal.mealDescription);
 }
 
 - (void)didReceiveMemoryWarning
@@ -105,7 +110,7 @@
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
     if (buttonIndex == 1) {
-        [self updateOrderNSUserDefaults];
+       // [self updateOrderNSUserDefaults];
         [self.navigationController popViewControllerAnimated:YES];
         
     }
@@ -114,8 +119,6 @@
 - (void)addMealToOrder {
     // Add meal to order
     // CoreData
-    _cdHelper = [[CoreDataHelper alloc] init];
-    [_cdHelper setupCoreData];
     
     // Check if meal is already in the current order
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OrderMeal"];
@@ -126,7 +129,7 @@
     
     if(fetchedObjects.count > 0){
         //Meal Already added, so updating count
-        
+        orderMealsCount = fetchedObjects.count + 1;
        meal = [fetchedObjects objectAtIndex:0];
         NSLog(@"FOUND MEAL IN ORDER, %@", self.selectedMeal.title);
         NSNumber *currentQuantity = meal.quantity;
@@ -141,20 +144,33 @@
     }
     
     [self.cdHelper saveContext];
+    [self updateMealsTabBadge];
     NSLog(@"OrderMeal saved to CoreData");
 }
 
-- (void)updateOrderNSUserDefaults {
-    // NSUserDefaults
-    [self.temp addObject:self.selectedMeal.objectId];
-    NSArray *order = [NSArray arrayWithArray:self.temp];
-    [self.defaults setObject:order forKey:@"order"];
-    
-    [self.defaults synchronize];
-    
-    NSLog(@"Order saved to NSUserDefaults");
-    
+- (void) updateMealsTabBadge{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OrderMeal"];
+    NSArray *fetchedObjects = [_cdHelper.context executeFetchRequest:request error:nil];
+     orderMealsCount = 0;
+     if(fetchedObjects.count > 0){
+         for (OrderMeal *orderMeal in fetchedObjects) {
+             orderMealsCount = orderMealsCount + [orderMeal.quantity longValue];
+         }
+    [[[[self.tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%lu", orderMealsCount]];
+     }
 }
+
+//- (void)updateOrderNSUserDefaults {
+//    // NSUserDefaults
+//    [self.temp addObject:self.selectedMeal.objectId];
+//    NSArray *order = [NSArray arrayWithArray:self.temp];
+//    [self.defaults setObject:order forKey:@"order"];
+//    
+//    [self.defaults synchronize];
+//    
+//    NSLog(@"Order saved to NSUserDefaults");
+//    
+//}
 
 
 @end

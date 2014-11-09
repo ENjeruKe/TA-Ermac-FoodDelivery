@@ -21,6 +21,7 @@
     Meal *tempMeal;
     BOOL forHome;
     float total;
+    unsigned long allMealsCount;
     
 }
 @property(nonatomic, strong) CoreDataHelper* cdHelper;
@@ -44,6 +45,7 @@
     [self.mealsInOrderTableView setDelegate:self];
     [self.mealsInOrderTableView setDataSource:self];
     [self.orderTypeSwitch addTarget:self action:@selector(setOrderType:) forControlEvents:UIControlEventValueChanged];
+    self.mealsInOrderTableView.allowsMultipleSelectionDuringEditing = NO;
     
     //[self addFakeData];
     _cdHelper = [[CoreDataHelper alloc] init];
@@ -64,6 +66,33 @@
     self.orderTypeLabel.text = orderTypeText;
 }
 
+-(void) removeMealFromOrder: (Meal *) meal{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OrderMeal"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"mealId == %@", meal.objectId];
+    
+    [request setPredicate:predicate];
+    NSArray *fetchedObjects = [_cdHelper.context executeFetchRequest:request error:nil];
+    
+    OrderMeal* orderMeal;
+    
+    if(fetchedObjects.count > 0){
+        //Meal Already added, so updating count
+        orderMeal = [fetchedObjects objectAtIndex:0];
+        [_cdHelper.context deleteObject:orderMeal];
+        [mutableDict removeObjectForKey:orderMeal.mealId];
+        [self refreshTotalLabel];
+        [self updateTabBadges];
+    }
+    [_cdHelper saveContext];
+}
+
+- (void)lockOrderTabAndExit {
+    allMealsCount = 0;
+    [self updateTabBadges];
+    [[[[self.tabBarController tabBar]items]objectAtIndex:1]setEnabled:FALSE];
+    [self.tabBarController setSelectedIndex:0];
+}
+
 -(void) cleanMealsOrder{
     NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OrderMeal"];
     NSArray *fetchedObjects = [_cdHelper.context executeFetchRequest:request error:nil];
@@ -73,14 +102,15 @@
             [_cdHelper.context deleteObject:meal];
             //[self viewDidAppear:YES];
         }
+        [_cdHelper saveContext];
     } else {
         NSLog(@"No meals in order!");
     }
     mutableDict = [[NSMutableDictionary alloc] init];
     orderMeals = [[NSMutableArray alloc] init];
     tempMeal = [[Meal alloc] init];
-    [[[[self.tabBarController tabBar]items]objectAtIndex:1]setEnabled:FALSE];
-    [self.tabBarController setSelectedIndex:0];
+    
+    [self lockOrderTabAndExit];
     
 }
 
@@ -112,6 +142,28 @@
     
 }
 
+- (void)refreshTotalLabel {
+    total = 0;
+    allMealsCount = 0;
+    for (Meal *meal in orderMeals) {
+        int quantity = [[mutableDict objectForKey:meal.objectId] shortValue];
+        total = total + [meal.price floatValue] * quantity;
+        allMealsCount = allMealsCount + quantity;
+    }
+    self.totalPriceLabel.text = [NSString stringWithFormat:@"Обща сума: %.2f лв",total];
+     [self updateTabBadges];
+}
+
+- (void) updateTabBadges{
+    if(allMealsCount > 0){
+        [[[[self.tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%lu", allMealsCount]];
+        [[[[self.tabBarController tabBar] items] objectAtIndex:1] setBadgeValue:[NSString stringWithFormat:@"%.2f", total]];
+    } else {
+        [[[[self.tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:nil];
+        [[[[self.tabBarController tabBar] items] objectAtIndex:1] setBadgeValue:nil];
+    }
+}
+
 -(void) retrieveMealFromParse: (OrderMeal*) requestedMeal{
     PFQuery *query = [PFQuery queryWithClassName: [Meal parseClassName]];
     [query whereKey:@"objectId" equalTo:requestedMeal.mealId];
@@ -124,47 +176,43 @@
             NSLog(@"MEAL: %@, x %@",  m.title, requestedMeal.quantity);
             [self.mealsInOrderTableView reloadData];
             NSLog(@"Total meals fetched: %lu", orderMeals.count);
-            total = 0;
+            [self refreshTotalLabel];
             
-            for (Meal *meal in orderMeals) {
-                int quantity = [[mutableDict objectForKey:meal.objectId] shortValue];
-                total = total + [meal.price floatValue] * quantity;
-            }
-            self.totalPriceLabel.text = [NSString stringWithFormat:@"Обща сума: %.2f лв",total];
         }else{
             NSLog(@"Error getting meals!");
         }
     }];
 }
 
-//- (void)addFakeData
-//{
-//    titles = [NSArray arrayWithObjects:@"Яйце Benedict", @"Ризото с гъби", @"Цяла закуска", @"Хамбургер", @"Сандвич с шунка и яйце", @"Крем 'Брюле'", @"Донът с бял шоколад", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
-//
-//    images = [NSArray arrayWithObjects:@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg", @"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg", nil];
-//
-//    for (int i=0; i< titles.count; i++) {
-//        Meal *meal = [[Meal alloc] init];
-//        meal.title = [titles objectAtIndex:i];
-//        meal.mealDescription = @"Sample description";
-//        NSData* data = UIImageJPEGRepresentation([UIImage imageNamed:[images objectAtIndex:i]], 0.5f);
-//        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"Image%d.jpg", i] data:data];
-//
-//        // NOT CORRECT - SAMPLE DATA
-//        meal.objectId = [NSString stringWithFormat:@"Image%d.jpg", i];
-//        // NOT CORRECT - SAMPLE DATA
-//        meal.image = imageFile;
-//       // int numChars = [[preProcessResult objectForKey:@"NumberChars"] intValue];
-//     //   int quantity = [[mutableDict objectForKey:meal.objectId] integerValue];
-//        meal.price = [NSNumber numberWithDouble:(i*3.14)];
-//        [orderMeals addObject:meal];
-//    }
-//}
+
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+
+-(NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return @"Откажи";
+}
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    // Return YES if you want the specified item to be editable.
+    return YES;
+}
+
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        //add code here for when you hit delete
+        [self removeMealFromOrder:[orderMeals objectAtIndex:indexPath.row]];
+         [orderMeals removeObjectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        if (orderMeals.count == 0) {
+            [self lockOrderTabAndExit];
+        }
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -216,7 +264,7 @@
  */
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
+  
     // ORDER BUTTON CLICKED
     if(alertView.tag == 1){
         if (buttonIndex == [alertView cancelButtonIndex]) {
@@ -268,9 +316,10 @@
     if(alertView.tag == 3){
         if (buttonIndex == 0) {
             // GOTO MEALS TAB
-            [self.tabBarController setSelectedIndex:0];
+            [self lockOrderTabAndExit];
         }
     }
+    
 }
 
 
