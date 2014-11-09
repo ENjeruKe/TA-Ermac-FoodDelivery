@@ -1,68 +1,51 @@
 //
-//  ProfileViewController.m
+//  EditProfileViewController.m
 //  Food Drlivery
 //
-//  Created by user on 08/11/14.
+//  Created by user on 09/11/14.
 //  Copyright (c) 2014 Borislav Boyadzhiev. All rights reserved.
 //
 
 #import <Parse/Parse.h>
-#import "ProfileViewController.h"
 #import "EditProfileViewController.h"
 
-
-@interface ProfileViewController ()
+@interface EditProfileViewController ()
 
 @end
 
-@implementation ProfileViewController
+@implementation EditProfileViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //PFQuery* queryPhoto = [PFQuery queryWithClassName:@"_User"];
     PFQuery *queryPhoto = [PFUser query];
     [queryPhoto whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+    
     [queryPhoto findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        // Verify if there are no errors
         if (!error) {
-             if (objects.count > 0) {
-                  NSLog(@"NO ERROR");
-            PFObject* profilePhotoObject = objects[0];
-             //   NSLog(@"%@", profilePhotoObject);
-            PFFile* currentUserPhoto = (PFFile *)[profilePhotoObject objectForKey:@"profilePic"];
-           // UIImageView* currentUserImage = [[UIImageView alloc]initWithImage:[UIImage imageWithData:currentUserPhoto.getData]];
-           // self.profilePic = currentUserImage;
-                 self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
-                 self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
-                 self.profilePic.clipsToBounds = YES;
-             }
+            if (objects.count > 0) {
+                PFObject* profilePhotoObject = objects[0];
+                PFFile* currentUserPhoto = (PFFile *)[profilePhotoObject objectForKey:@"profilePic"];
+
+                self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
+                self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
+                self.profilePic.clipsToBounds = YES;
+            }
         }else {
             NSLog(@"ERROR!!!");
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
             [errorAlertView show];
-            
         }
     }];
-
+    
     
     self.username.text = [PFUser currentUser].username;
     self.email.text =[PFUser currentUser].email;
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-}
-
--(IBAction)editProfileButton:(id)sender {
-    // load EditProfileViewController
-    UIStoryboard *storyboard = self.storyboard;
-    EditProfileViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
-    [self presentViewController:svc animated:YES completion:nil];
 }
 
 /*

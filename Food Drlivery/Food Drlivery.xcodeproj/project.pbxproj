@@ -66,6 +66,7 @@
 		84ADBB731A0C3AC700584A7F /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84ADBB631A0C3AC700584A7F /* white_chocolate_donut.jpg */; };
 		84EB3F7C1A0D931000049476 /* emptyplate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84EB3F7B1A0D931000049476 /* emptyplate.jpg */; };
 		84F77AC51A0D7A61006DBE00 /* OrderDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */; };
+		CE7840C71A0ED6E2002449A4 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7840C61A0ED6E2002449A4 /* EditProfileViewController.m */; };
 		CEDEDA411A0E45670098A613 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDEDA401A0E45670098A613 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +156,8 @@
 		84EB3F7B1A0D931000049476 /* emptyplate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = emptyplate.jpg; path = Images.xcassets/emptyplate.jpg; sourceTree = "<group>"; };
 		84F77AC31A0D7A61006DBE00 /* OrderDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailsTableViewCell.h; path = Views/OrderDetailsTableViewCell.h; sourceTree = "<group>"; };
 		84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailsTableViewCell.m; path = Views/OrderDetailsTableViewCell.m; sourceTree = "<group>"; };
+		CE7840C51A0ED6E2002449A4 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		CE7840C61A0ED6E2002449A4 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		CEDEDA3F1A0E45670098A613 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		CEDEDA401A0E45670098A613 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -324,6 +327,8 @@
 				84ADBB501A0C338B00584A7F /* MealTableViewCell.xib */,
 				CEDEDA3F1A0E45670098A613 /* ProfileViewController.h */,
 				CEDEDA401A0E45670098A613 /* ProfileViewController.m */,
+				CE7840C51A0ED6E2002449A4 /* EditProfileViewController.h */,
+				CE7840C61A0ED6E2002449A4 /* EditProfileViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 			files = (
 				840EFD8B1A0D727700C191A3 /* OrderDetailsViewController.m in Sources */,
 				84ADBB511A0C338B00584A7F /* MealTableViewCellController.m in Sources */,
+				CE7840C71A0ED6E2002449A4 /* EditProfileViewController.m in Sources */,
 				84A6DAB01A0AA4590015BABE /* Meal.m in Sources */,
 				8446592B1A0A3C6A00DD426C /* Food_Drlivery.xcdatamodeld in Sources */,
 				CEDEDA411A0E45670098A613 /* ProfileViewController.m in Sources */,

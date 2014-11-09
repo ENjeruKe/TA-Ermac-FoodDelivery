@@ -12,5 +12,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *profilePic;
 @property (weak, nonatomic) IBOutlet UILabel *username;
 @property (weak, nonatomic) IBOutlet UILabel *email;
-
+- (IBAction)editProfileButton:(id)sender;
 @end
