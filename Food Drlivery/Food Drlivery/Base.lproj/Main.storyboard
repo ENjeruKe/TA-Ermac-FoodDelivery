@@ -432,48 +432,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Име" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dko-nh-Cn6">
-                                <rect key="frame" x="16" y="224" width="101" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Име" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dko-nh-Cn6">
+                                <rect key="frame" x="16" y="221" width="101" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="101" id="BvN-WG-IPi"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Е-мейл" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bK-E6-61o">
-                                <rect key="frame" x="16" y="260" width="101" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Е-мейл" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bK-E6-61o">
+                                <rect key="frame" x="16" y="293" width="101" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Редакция на профил" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzt-yh-kTO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Редакция на профил" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzt-yh-kTO">
                                 <rect key="frame" x="16" y="20" width="568" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                                 <size key="shadowOffset" width="0.0" height="0.0"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Е-мейл" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o29-Bz-YBU">
-                                <rect key="frame" x="125" y="256" width="459" height="30"/>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Е-мейл" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o29-Bz-YBU">
+                                <rect key="frame" x="125" y="289" width="459" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1zC-d9-r7e"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Име" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AES-Fc-0kC">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Име" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AES-Fc-0kC">
                                 <rect key="frame" x="125" y="221" width="459" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fgy-Br-T26">
-                                <rect key="frame" x="188" y="116" width="396" height="30"/>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FCL-Pl-h5o">
+                                <rect key="frame" x="188" y="64" width="396" height="29"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
+                                <state key="normal" title="Изберете избражение">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fgy-Br-T26">
+                                <rect key="frame" x="188" y="170" width="396" height="29"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
                                 <state key="normal" title="Ново избражение">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-y2-NwZ">
-                                <rect key="frame" x="29" y="307" width="74" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZE1-y2-NwZ">
+                                <rect key="frame" x="29" y="344" width="74" height="30"/>
                                 <state key="normal" title="Запази">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-nb-z8e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-nb-z8e">
                                 <rect key="frame" x="16" y="49" width="164" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="164" id="TMy-AF-GId"/>
@@ -482,37 +498,63 @@
                                     <constraint firstAttribute="height" constant="164" id="ypR-Co-yei"/>
                                 </constraints>
                             </imageView>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Парола" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6b-LV-5lN">
+                                <rect key="frame" x="125" y="255" width="459" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Rb3-RP-uRp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Парола" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-LD-8v2">
+                                <rect key="frame" x="16" y="258" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="dko-nh-Cn6" firstAttribute="leading" secondItem="kkt-Mk-bvs" secondAttribute="leadingMargin" id="3Sg-2V-tZi"/>
+                            <constraint firstItem="o29-Bz-YBU" firstAttribute="leading" secondItem="8bK-E6-61o" secondAttribute="trailing" constant="8" symbolic="YES" id="2aV-os-w9E"/>
                             <constraint firstItem="X0g-nb-z8e" firstAttribute="top" secondItem="Wzt-yh-kTO" secondAttribute="bottom" constant="8" id="3ZZ-jD-jNi"/>
-                            <constraint firstItem="X0g-nb-z8e" firstAttribute="leading" secondItem="kkt-Mk-bvs" secondAttribute="leadingMargin" id="7EZ-dh-iJ7"/>
-                            <constraint firstItem="AES-Fc-0kC" firstAttribute="top" secondItem="X0g-nb-z8e" secondAttribute="bottom" constant="8" id="83u-89-Ekr"/>
-                            <constraint firstItem="o29-Bz-YBU" firstAttribute="leading" secondItem="8bK-E6-61o" secondAttribute="trailing" constant="8" id="DAb-uT-gFv"/>
-                            <constraint firstItem="o29-Bz-YBU" firstAttribute="leading" secondItem="8bK-E6-61o" secondAttribute="trailing" constant="8" id="DLn-pw-xEb"/>
+                            <constraint firstItem="FGd-LD-8v2" firstAttribute="leading" secondItem="kkt-Mk-bvs" secondAttribute="leadingMargin" id="4Fa-Xz-R6X"/>
+                            <constraint firstItem="AES-Fc-0kC" firstAttribute="leading" secondItem="k6b-LV-5lN" secondAttribute="leading" id="5en-Aj-fpi"/>
+                            <constraint firstItem="7Ex-7t-d10" firstAttribute="top" secondItem="o29-Bz-YBU" secondAttribute="bottom" constant="232" id="5lu-5Q-1zE"/>
+                            <constraint firstItem="FGd-LD-8v2" firstAttribute="baseline" secondItem="k6b-LV-5lN" secondAttribute="baseline" id="772-lq-Efx"/>
+                            <constraint firstItem="FGd-LD-8v2" firstAttribute="top" secondItem="dko-nh-Cn6" secondAttribute="bottom" constant="16" id="D3A-LZ-1zV"/>
+                            <constraint firstItem="8bK-E6-61o" firstAttribute="top" secondItem="FGd-LD-8v2" secondAttribute="bottom" constant="14" id="Eho-5A-jwO"/>
+                            <constraint firstItem="o29-Bz-YBU" firstAttribute="trailing" secondItem="k6b-LV-5lN" secondAttribute="trailing" id="IIL-Q1-fNR"/>
                             <constraint firstItem="Wzt-yh-kTO" firstAttribute="top" secondItem="6R6-nS-uVS" secondAttribute="bottom" id="IYg-Xp-lqd"/>
-                            <constraint firstItem="fgy-Br-T26" firstAttribute="leading" secondItem="X0g-nb-z8e" secondAttribute="trailing" constant="8" id="S1Q-Xt-127"/>
-                            <constraint firstItem="Wzt-yh-kTO" firstAttribute="trailing" secondItem="kkt-Mk-bvs" secondAttribute="trailingMargin" id="UyV-sR-Vxq"/>
-                            <constraint firstItem="8bK-E6-61o" firstAttribute="leading" secondItem="kkt-Mk-bvs" secondAttribute="leadingMargin" id="Vh4-B4-MWz"/>
-                            <constraint firstItem="o29-Bz-YBU" firstAttribute="top" secondItem="AES-Fc-0kC" secondAttribute="bottom" constant="6" id="WPE-Rd-Xhr"/>
-                            <constraint firstItem="AES-Fc-0kC" firstAttribute="trailing" secondItem="kkt-Mk-bvs" secondAttribute="trailingMargin" id="Wj7-Ef-y5H"/>
-                            <constraint firstItem="Wzt-yh-kTO" firstAttribute="leading" secondItem="kkt-Mk-bvs" secondAttribute="leadingMargin" id="ZqK-pO-qOJ"/>
-                            <constraint firstItem="dko-nh-Cn6" firstAttribute="top" secondItem="X0g-nb-z8e" secondAttribute="bottom" constant="11" id="elu-xE-bff"/>
-                            <constraint firstItem="8bK-E6-61o" firstAttribute="top" secondItem="dko-nh-Cn6" secondAttribute="bottom" constant="15" id="g27-VE-3XM"/>
-                            <constraint firstItem="fgy-Br-T26" firstAttribute="trailing" secondItem="kkt-Mk-bvs" secondAttribute="trailingMargin" id="gRE-9A-Nc2"/>
-                            <constraint firstItem="fgy-Br-T26" firstAttribute="top" secondItem="Wzt-yh-kTO" secondAttribute="bottom" constant="75" id="jkC-KB-x3u"/>
-                            <constraint firstItem="o29-Bz-YBU" firstAttribute="top" secondItem="AES-Fc-0kC" secondAttribute="bottom" constant="5" id="k1N-o1-R6Q"/>
-                            <constraint firstItem="AES-Fc-0kC" firstAttribute="top" secondItem="fgy-Br-T26" secondAttribute="bottom" constant="75" id="ktZ-OD-92J"/>
-                            <constraint firstItem="o29-Bz-YBU" firstAttribute="trailing" secondItem="kkt-Mk-bvs" secondAttribute="trailingMargin" id="oJ1-3z-xnY"/>
-                            <constraint firstItem="AES-Fc-0kC" firstAttribute="leading" secondItem="dko-nh-Cn6" secondAttribute="trailing" constant="8" id="vAE-07-clt"/>
-                            <constraint firstItem="AES-Fc-0kC" firstAttribute="leading" secondItem="dko-nh-Cn6" secondAttribute="trailing" constant="8" id="yEf-8W-EYS"/>
+                            <constraint firstItem="k6b-LV-5lN" firstAttribute="leading" secondItem="FGd-LD-8v2" secondAttribute="trailing" constant="8" symbolic="YES" id="LbS-TI-71L"/>
+                            <constraint firstItem="FGd-LD-8v2" firstAttribute="leading" secondItem="8bK-E6-61o" secondAttribute="leading" id="Pim-ES-md6"/>
+                            <constraint firstItem="FCL-Pl-h5o" firstAttribute="leading" secondItem="X0g-nb-z8e" secondAttribute="trailing" constant="8" id="RHh-Sb-o5Z"/>
+                            <constraint firstItem="o29-Bz-YBU" firstAttribute="trailing" secondItem="kkt-Mk-bvs" secondAttribute="trailingMargin" id="SOO-1x-ldQ"/>
+                            <constraint firstItem="fgy-Br-T26" firstAttribute="top" secondItem="FCL-Pl-h5o" secondAttribute="bottom" constant="77" id="SeE-qN-9R8"/>
+                            <constraint firstItem="AES-Fc-0kC" firstAttribute="leading" secondItem="dko-nh-Cn6" secondAttribute="trailing" constant="8" symbolic="YES" id="VHK-1k-iGx"/>
+                            <constraint firstItem="AES-Fc-0kC" firstAttribute="top" secondItem="dko-nh-Cn6" secondAttribute="top" id="Vvq-uN-0O9"/>
+                            <constraint firstItem="8bK-E6-61o" firstAttribute="centerX" secondItem="ZE1-y2-NwZ" secondAttribute="centerX" id="XIH-Ta-3nA"/>
+                            <constraint firstItem="o29-Bz-YBU" firstAttribute="top" secondItem="k6b-LV-5lN" secondAttribute="bottom" constant="4" id="aCd-o1-c21"/>
+                            <constraint firstItem="k6b-LV-5lN" firstAttribute="trailing" secondItem="AES-Fc-0kC" secondAttribute="trailing" id="aZs-jw-8Rz"/>
+                            <constraint firstItem="dko-nh-Cn6" firstAttribute="top" secondItem="X0g-nb-z8e" secondAttribute="bottom" constant="8" symbolic="YES" id="bTF-YT-WPM"/>
+                            <constraint firstItem="dko-nh-Cn6" firstAttribute="leading" secondItem="FGd-LD-8v2" secondAttribute="leading" id="blq-xe-fdL"/>
+                            <constraint firstItem="AES-Fc-0kC" firstAttribute="trailing" secondItem="fgy-Br-T26" secondAttribute="trailing" id="eU1-oN-gbT"/>
+                            <constraint firstItem="fgy-Br-T26" firstAttribute="leading" secondItem="X0g-nb-z8e" secondAttribute="trailing" constant="8" id="fLB-b8-wBA"/>
+                            <constraint firstItem="AES-Fc-0kC" firstAttribute="trailing" secondItem="Wzt-yh-kTO" secondAttribute="trailing" id="fdW-Rz-vkT"/>
+                            <constraint firstItem="dko-nh-Cn6" firstAttribute="leading" secondItem="Wzt-yh-kTO" secondAttribute="leading" id="qsO-vV-kVx"/>
+                            <constraint firstItem="AES-Fc-0kC" firstAttribute="trailing" secondItem="FCL-Pl-h5o" secondAttribute="trailing" id="s1n-bu-Lpn"/>
+                            <constraint firstItem="ZE1-y2-NwZ" firstAttribute="top" secondItem="8bK-E6-61o" secondAttribute="bottom" constant="30" id="sKP-4p-JmU"/>
+                            <constraint firstItem="o29-Bz-YBU" firstAttribute="leading" secondItem="k6b-LV-5lN" secondAttribute="leading" id="ujD-CL-vA5"/>
+                            <constraint firstItem="dko-nh-Cn6" firstAttribute="leading" secondItem="X0g-nb-z8e" secondAttribute="leading" id="w1J-SK-rGb"/>
+                            <constraint firstItem="k6b-LV-5lN" firstAttribute="top" secondItem="AES-Fc-0kC" secondAttribute="bottom" constant="4" id="yS6-6w-H1N"/>
+                            <constraint firstItem="FCL-Pl-h5o" firstAttribute="top" secondItem="Wzt-yh-kTO" secondAttribute="bottom" constant="23" id="zqW-B2-oHN"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="editProfilePic" destination="fgy-Br-T26" id="T1t-cS-gzi"/>
                         <outlet property="email" destination="o29-Bz-YBU" id="Oa7-SW-kYu"/>
-                        <outlet property="profilePic" destination="X0g-nb-z8e" id="5wp-Ce-Gff"/>
+                        <outlet property="password" destination="k6b-LV-5lN" id="Gsg-Lh-N0I"/>
+                        <outlet property="profilePic" destination="X0g-nb-z8e" id="UQA-db-BAZ"/>
+                        <outlet property="selectProfilePic" destination="FCL-Pl-h5o" id="fb0-yv-CZT"/>
+                        <outlet property="takeProfilePic" destination="fgy-Br-T26" id="ALD-n5-asJ"/>
                         <outlet property="updateProfileButton" destination="ZE1-y2-NwZ" id="Zx8-CC-WEv"/>
                         <outlet property="username" destination="AES-Fc-0kC" id="hnd-Mx-sZA"/>
                     </connections>
