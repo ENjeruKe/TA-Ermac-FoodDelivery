@@ -66,6 +66,7 @@
         [[[self.tabBar items] objectAtIndex:1] setBadgeValue:@"!"];
     } else {
         NSLog(@"No unfinished order");
+        [[[self.tabBar items] objectAtIndex:1]setEnabled:FALSE];
     }
 }
 
