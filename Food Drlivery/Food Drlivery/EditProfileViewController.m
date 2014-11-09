@@ -156,8 +156,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     [PFGeoPoint geoPointForCurrentLocationInBackground:^(PFGeoPoint *geoPoint, NSError *error) {
         if (!error) {
-            //NSLog(@"User is currently at %f, %f", geoPoint.latitude, geoPoint.longitude);
-            
             // Reverse Geocoding
             CLLocation *location = [[CLLocation alloc] initWithLatitude:geoPoint.latitude
                                                               longitude:geoPoint.longitude];
@@ -165,7 +163,6 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
             CLGeocoder *geocoder = [[CLGeocoder alloc] init];
             [geocoder reverseGeocodeLocation:location
                            completionHandler:^(NSArray *placemarks, NSError *error) {
-                NSLog(@"Found placemarks: %@, error: %@", placemarks, error);
                 if (error == nil && [placemarks count] > 0) {
                     NSMutableArray *tempArray = [[NSMutableArray alloc] initWithCapacity:[placemarks count]];
                     for (CLPlacemark *placemark in placemarks) {
@@ -177,12 +174,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                                               placemark.administrativeArea== nil ? @"" : placemark.administrativeArea,
                                               placemark.country== nil ? @"" : placemark.country]];
                     }
-                  //  addressOutput = [tempArray copy];
-                   // NSLog(@"%@", [tempArray description]);
-                    self.address.text = [tempArray description];
+                    self.address.text = [tempArray componentsJoinedByString:@" "];
                 }
                 else {
-                  //  addressOutput = nil;
                     NSLog(@"%@", error.debugDescription);
                 }
             }];
