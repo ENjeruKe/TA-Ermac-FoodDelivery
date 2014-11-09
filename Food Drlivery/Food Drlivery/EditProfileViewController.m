@@ -28,10 +28,9 @@
                 self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
                 self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
                 self.profilePic.clipsToBounds = YES;
-            
                 self.address.text = userInfo[@"address"];
         }else {
-            NSLog(@"ERROR!!!");
+            NSLog(@"ERROR loading user details!");
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
                                                                      message:errorString
@@ -42,18 +41,16 @@
         }
     }];
     
-    
     self.username.text = [PFUser currentUser].username;
-    self.password.text =[PFUser currentUser].password;
     self.email.text =[PFUser currentUser].email;
     
     if (![UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
         UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
-                                                              message:@"Устройството няма камера"
-                                                             delegate:nil
-                                                    cancelButtonTitle:@"OK"
-                                                    otherButtonTitles: nil];
+                                                                 message:@"Устройството няма камера!"
+                                                                delegate:nil
+                                                       cancelButtonTitle:@"OK"
+                                                       otherButtonTitles: nil];
         [errorAlertView show];
         
     }
@@ -116,18 +113,22 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
     [userQuery getObjectInBackgroundWithId:[PFUser currentUser].objectId
                                      block:^(PFObject *userInfo, NSError *error) {
         if (!error) {
-           // userInfo[@"profilePic"] = self.profilePic.image;
+            //upload image
+            UIImage *newImage = self.profilePic.image;
+            NSData *imageData = UIImageJPEGRepresentation(newImage, 0.05f);
+            [self uploadImage:imageData];
+            
             userInfo[@"email"] = self.email.text;
             userInfo[@"username"] = self.username.text;
+            userInfo[@"address"] = self.address.text;
             
             //TODO check if this is the right way to update
-            [PFUser currentUser].password = self.password.text;
+            if(self.password.text != nil){
+                [PFUser currentUser].password = self.password.text;
+            }
             
             [userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
-//                    UIStoryboard *storyboard = self.storyboard;
-//                    UIViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
-//                    [self presentViewController:svc animated:NO completion:nil];
                      [self.navigationController popViewControllerAnimated:YES];
                 } else{
                     NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -181,7 +182,9 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
                 }
             }];
             
+            //update address and geo data for user
             [[PFUser currentUser] setObject:geoPoint forKey:@"currentLocation"];
+            [[PFUser currentUser] setObject:self.address.text forKey:@"address"];
             [[PFUser currentUser] saveInBackground];
         }else {
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -194,6 +197,29 @@ didFinishPickingMediaWithInfo:(NSDictionary *)info {
         }
     }];
     
+}
+
+- (void)uploadImage:(NSData *)imageData
+{
+    PFFile *imageFile = [PFFile fileWithName:@"Image.jpg" data:imageData];
+    
+    // Save PFFile
+    [imageFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            
+            // Create a PFObject around a PFFile and associate it with the current user
+            PFObject *currentUser = [PFUser currentUser];
+            
+            // Set the access control list to current user for security purposes
+            currentUser.ACL = [PFACL ACLWithUser:[PFUser currentUser]];
+            
+            [currentUser setObject:imageFile forKey:@"profilePic"];
+            
+            [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                
+            }];
+        }
+    }];
 }
 
 @end
