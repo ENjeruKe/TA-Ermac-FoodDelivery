@@ -14,7 +14,9 @@
 - (IBAction)selectProfilePic:(id)sender;
 - (IBAction)takeProfilePic:(id)sender;
 - (IBAction)updateProfileButton:(id)sender;
+- (IBAction)addCurrentLocation:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *username;
 @property (weak, nonatomic) IBOutlet UITextField *email;
 @property (weak, nonatomic) IBOutlet UITextField *password;
+@property (weak, nonatomic) IBOutlet UITextView *address;
 @end
