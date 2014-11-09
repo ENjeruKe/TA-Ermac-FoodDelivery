@@ -19,25 +19,39 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     //PFQuery* queryPhoto = [PFQuery queryWithClassName:@"_User"];
-    PFQuery *queryPhoto = [PFUser query];
+    PFQuery *userQuery = [PFUser query];
     //force refresh in order to get the data if it is updated
     [[PFUser currentUser] fetchInBackground];
     
-    [queryPhoto whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
-    [queryPhoto findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+    //[queryPhoto whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
+    
+    
+    //PFQuery *userQuery = [PFUser query];
+    //force refresh in order to get the data if it is updated
+    [[PFUser currentUser] fetchInBackground];
+    
+    [userQuery getObjectInBackgroundWithId:[PFUser currentUser].objectId
+                                     block:^(PFObject *userInfo, NSError *error) {
+    
+    //
+   // [queryPhoto findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         // Verify if there are no errors
         if (!error) {
-             if (objects.count > 0) {
-                  NSLog(@"NO ERROR");
-            PFObject* profilePhotoObject = objects[0];
+          //   if (objects.count > 0) {
+           // PFObject* profilePhotoObject = objects[0];
              //   NSLog(@"%@", profilePhotoObject);
-            PFFile* currentUserPhoto = (PFFile *)[profilePhotoObject objectForKey:@"profilePic"];
+          //  PFFile* currentUserPhoto = (PFFile *)[profilePhotoObject objectForKey:@"profilePic"];
+            PFFile* currentUserPhoto = (PFFile *) userInfo[@"profilePic"];
+
+           
            // UIImageView* currentUserImage = [[UIImageView alloc]initWithImage:[UIImage imageWithData:currentUserPhoto.getData]];
            // self.profilePic = currentUserImage;
                  self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
                  self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
                  self.profilePic.clipsToBounds = YES;
-             }
+            
+                self.address.text = userInfo[@"address"];
+            // }
         }else {
             NSLog(@"ERROR!!!");
             NSString *errorString = [[error userInfo] objectForKey:@"error"];
@@ -50,6 +64,7 @@
     
     self.username.text = [PFUser currentUser].username;
     self.email.text =[PFUser currentUser].email;
+
     
 }
 

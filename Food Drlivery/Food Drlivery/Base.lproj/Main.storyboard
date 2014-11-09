@@ -329,6 +329,24 @@
             <point key="canvasLocation" x="2071" y="30"/>
         </scene>
         <!--Профил-->
+        <scene sceneID="r8v-6g-4gF">
+            <objects>
+                <navigationController id="6of-M6-MRY" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Профил" id="dRX-I9-p7j"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4bu-So-Jnm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="5Xt-Uk-Vby" kind="relationship" relationship="rootViewController" id="0wm-7o-RJj"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4yx-vO-Qsn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1660" y="666"/>
+        </scene>
+        <!--Профил-->
         <scene sceneID="WAz-eb-Q9A">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" title="Профил" id="5Xt-Uk-Vby" userLabel="Профил" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -343,7 +361,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Име" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k1y-qg-5g0">
                                 <rect key="frame" x="16" y="221" width="101" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="101" id="shv-j1-TFg"/>
+                                    <constraint firstAttribute="width" constant="101" id="qml-eG-Rt0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -364,7 +382,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Профил" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aks-7r-nGU">
                                 <rect key="frame" x="16" y="20" width="568" height="21"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="ZgH-b4-5Uq"/>
+                                    <constraint firstAttribute="height" constant="21" id="Txu-tP-fcY"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -374,11 +392,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uzu-L9-d6y">
                                 <rect key="frame" x="16" y="49" width="164" height="164"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="164" id="IcL-X6-Bke"/>
+                                    <constraint firstAttribute="width" constant="164" id="Q1o-0c-giq"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zw9-Ma-GGf">
-                                <rect key="frame" x="16" y="310" width="101" height="30"/>
+                                <rect key="frame" x="16" y="435" width="101" height="30"/>
                                 <state key="normal" title="Редакция">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -392,42 +410,66 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адрес" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tkn-8Q-ScK">
+                                <rect key="frame" x="16" y="279" width="101" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GlJ-sh-neT">
+                                <rect key="frame" x="125" y="279" width="466" height="128"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="kvL-c3-207"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="qZq-F9-bJu" secondAttribute="trailing" constant="-7" id="0Nc-4i-fEy"/>
-                            <constraint firstItem="uzu-L9-d6y" firstAttribute="leading" secondItem="aks-7r-nGU" secondAttribute="leading" id="1q2-dL-UhB"/>
-                            <constraint firstItem="zw9-Ma-GGf" firstAttribute="top" secondItem="f2t-el-ySH" secondAttribute="bottom" constant="39" id="2RC-g7-ymP"/>
-                            <constraint firstItem="aks-7r-nGU" firstAttribute="top" secondItem="gNR-ex-78q" secondAttribute="bottom" id="3lR-3K-81P"/>
-                            <constraint firstItem="I7d-7i-WpW" firstAttribute="trailing" secondItem="qZq-F9-bJu" secondAttribute="trailing" id="5Ch-se-fco"/>
-                            <constraint firstItem="f2t-el-ySH" firstAttribute="leading" secondItem="k1y-qg-5g0" secondAttribute="leading" id="Aez-8V-zFp"/>
-                            <constraint firstItem="zw9-Ma-GGf" firstAttribute="trailing" secondItem="f2t-el-ySH" secondAttribute="trailing" id="Cz7-EP-aLZ"/>
-                            <constraint firstItem="uzu-L9-d6y" firstAttribute="top" secondItem="aks-7r-nGU" secondAttribute="bottom" constant="8" symbolic="YES" id="QZ1-UX-d4O"/>
-                            <constraint firstItem="I7d-7i-WpW" firstAttribute="leading" secondItem="qZq-F9-bJu" secondAttribute="leading" id="WJy-9n-a5E"/>
-                            <constraint firstItem="qZq-F9-bJu" firstAttribute="leading" secondItem="k1y-qg-5g0" secondAttribute="trailing" constant="8" symbolic="YES" id="Zsc-1C-pUw"/>
-                            <constraint firstItem="aks-7r-nGU" firstAttribute="trailing" secondItem="b7M-u7-y7m" secondAttribute="trailingMargin" id="b46-c5-CRG"/>
-                            <constraint firstItem="I7d-7i-WpW" firstAttribute="baseline" secondItem="f2t-el-ySH" secondAttribute="baseline" id="cNz-Za-HOI"/>
-                            <constraint firstItem="f2t-el-ySH" firstAttribute="top" secondItem="k1y-qg-5g0" secondAttribute="bottom" constant="8" symbolic="YES" id="fJE-Os-Fu4"/>
-                            <constraint firstItem="zw9-Ma-GGf" firstAttribute="leading" secondItem="b7M-u7-y7m" secondAttribute="leadingMargin" id="lFQ-eg-qPH"/>
-                            <constraint firstItem="k1y-qg-5g0" firstAttribute="top" secondItem="uzu-L9-d6y" secondAttribute="bottom" constant="8" symbolic="YES" id="m0a-N9-Euu"/>
-                            <constraint firstItem="Bxb-DT-0kg" firstAttribute="top" secondItem="zw9-Ma-GGf" secondAttribute="bottom" constant="211" id="qmx-er-ZNd"/>
-                            <constraint firstItem="k1y-qg-5g0" firstAttribute="leading" secondItem="uzu-L9-d6y" secondAttribute="leading" id="wQa-w1-qGa"/>
-                            <constraint firstItem="I7d-7i-WpW" firstAttribute="leading" secondItem="f2t-el-ySH" secondAttribute="trailing" constant="8" symbolic="YES" id="zCC-h8-yYv"/>
-                            <constraint firstItem="f2t-el-ySH" firstAttribute="leading" secondItem="zw9-Ma-GGf" secondAttribute="leading" id="zbt-ek-PUf"/>
-                            <constraint firstItem="qZq-F9-bJu" firstAttribute="baseline" secondItem="k1y-qg-5g0" secondAttribute="baseline" id="zqV-zf-kc8"/>
+                            <constraint firstItem="f2t-el-ySH" firstAttribute="top" secondItem="k1y-qg-5g0" secondAttribute="bottom" constant="8" symbolic="YES" id="0WH-iP-NOd"/>
+                            <constraint firstItem="uzu-L9-d6y" firstAttribute="top" secondItem="aks-7r-nGU" secondAttribute="bottom" constant="8" symbolic="YES" id="20r-XC-Yin"/>
+                            <constraint firstItem="aks-7r-nGU" firstAttribute="trailing" secondItem="b7M-u7-y7m" secondAttribute="trailingMargin" id="7H3-W1-oTX"/>
+                            <constraint firstItem="GlJ-sh-neT" firstAttribute="leading" secondItem="tkn-8Q-ScK" secondAttribute="trailing" constant="8" symbolic="YES" id="DR3-By-gx9"/>
+                            <constraint firstItem="I7d-7i-WpW" firstAttribute="leading" secondItem="f2t-el-ySH" secondAttribute="trailing" constant="8" symbolic="YES" id="ELn-ev-DaE"/>
+                            <constraint firstItem="tkn-8Q-ScK" firstAttribute="leading" secondItem="zw9-Ma-GGf" secondAttribute="leading" id="JJh-KG-7Zc"/>
+                            <constraint firstItem="Bxb-DT-0kg" firstAttribute="top" secondItem="GlJ-sh-neT" secondAttribute="bottom" constant="144" id="QcT-n5-oP3"/>
+                            <constraint firstItem="f2t-el-ySH" firstAttribute="leading" secondItem="tkn-8Q-ScK" secondAttribute="leading" id="R5s-AA-Sni"/>
+                            <constraint firstItem="I7d-7i-WpW" firstAttribute="leading" secondItem="GlJ-sh-neT" secondAttribute="leading" id="RzU-vv-Ri8"/>
+                            <constraint firstItem="f2t-el-ySH" firstAttribute="leading" secondItem="b7M-u7-y7m" secondAttribute="leadingMargin" id="TpK-Gh-9M7"/>
+                            <constraint firstItem="tkn-8Q-ScK" firstAttribute="top" secondItem="GlJ-sh-neT" secondAttribute="top" id="VLd-d3-4ZB"/>
+                            <constraint firstItem="I7d-7i-WpW" firstAttribute="leading" secondItem="qZq-F9-bJu" secondAttribute="leading" id="X51-vC-2RH"/>
+                            <constraint firstItem="qZq-F9-bJu" firstAttribute="trailing" secondItem="I7d-7i-WpW" secondAttribute="trailing" id="X53-SE-MT8"/>
+                            <constraint firstItem="I7d-7i-WpW" firstAttribute="baseline" secondItem="f2t-el-ySH" secondAttribute="baseline" id="YRy-R6-VrH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qZq-F9-bJu" secondAttribute="trailing" constant="-7" id="Z5V-dL-7ik"/>
+                            <constraint firstItem="qZq-F9-bJu" firstAttribute="leading" secondItem="k1y-qg-5g0" secondAttribute="trailing" constant="8" symbolic="YES" id="aIw-ll-2M0"/>
+                            <constraint firstItem="Bxb-DT-0kg" firstAttribute="top" secondItem="zw9-Ma-GGf" secondAttribute="bottom" constant="86" id="bIj-QU-28f"/>
+                            <constraint firstItem="I7d-7i-WpW" firstAttribute="trailing" secondItem="GlJ-sh-neT" secondAttribute="trailing" id="ct3-Cc-CNu"/>
+                            <constraint firstItem="aks-7r-nGU" firstAttribute="top" secondItem="b7M-u7-y7m" secondAttribute="top" constant="20" symbolic="YES" id="hJc-5u-xg0"/>
+                            <constraint firstItem="tkn-8Q-ScK" firstAttribute="trailing" secondItem="zw9-Ma-GGf" secondAttribute="trailing" id="hoa-m5-jMV"/>
+                            <constraint firstItem="k1y-qg-5g0" firstAttribute="leading" secondItem="uzu-L9-d6y" secondAttribute="leading" id="mbp-SW-NOL"/>
+                            <constraint firstItem="k1y-qg-5g0" firstAttribute="leading" secondItem="f2t-el-ySH" secondAttribute="leading" id="nuf-Qc-n1e"/>
+                            <constraint firstItem="k1y-qg-5g0" firstAttribute="top" secondItem="uzu-L9-d6y" secondAttribute="bottom" constant="8" symbolic="YES" id="o50-eX-NgL"/>
+                            <constraint firstItem="aks-7r-nGU" firstAttribute="leading" secondItem="uzu-L9-d6y" secondAttribute="leading" id="sFE-dL-hmh"/>
+                            <constraint firstItem="qZq-F9-bJu" firstAttribute="baseline" secondItem="k1y-qg-5g0" secondAttribute="baseline" id="u9f-L8-FC7"/>
+                            <constraint firstItem="tkn-8Q-ScK" firstAttribute="top" secondItem="f2t-el-ySH" secondAttribute="bottom" constant="8" symbolic="YES" id="xUB-Fa-a2S"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Профил" id="pHP-N7-ZxT"/>
+                    <navigationItem key="navigationItem" title="Назад" id="vK5-zj-EmW">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="zIt-H3-nH8"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="address" destination="GlJ-sh-neT" id="ntd-43-oSj"/>
                         <outlet property="email" destination="I7d-7i-WpW" id="gVO-fs-wVr"/>
                         <outlet property="profilePic" destination="uzu-L9-d6y" id="LvU-8V-gBu"/>
                         <outlet property="username" destination="qZq-F9-bJu" id="z7o-sb-Q0L"/>
-                        <segue destination="tXW-AE-O4b" kind="show" id="5cO-df-2Wp"/>
+                        <segue destination="tXW-AE-O4b" kind="show" id="UOJ-Fl-dgC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MuC-3q-oN9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-570" y="994"/>
+            <point key="canvasLocation" x="-862" y="666"/>
         </scene>
         <!--Редакция Профил-->
         <scene sceneID="Sve-yt-1c0">
@@ -441,7 +483,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Име" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dko-nh-Cn6">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Име" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dko-nh-Cn6">
                                 <rect key="frame" x="16" y="221" width="101" height="21"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="101" id="BvN-WG-IPi"/>
@@ -456,7 +498,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Редакция на профил" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzt-yh-kTO">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Редакция на профил" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wzt-yh-kTO">
                                 <rect key="frame" x="16" y="20" width="568" height="21"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -471,12 +513,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Име" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AES-Fc-0kC">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Име" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="AES-Fc-0kC">
                                 <rect key="frame" x="125" y="221" width="459" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fgy-Br-T26">
+                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="fgy-Br-T26">
                                 <rect key="frame" x="188" y="170" width="396" height="29"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -487,7 +529,7 @@
                                     <action selector="takeProfilePic:" destination="tXW-AE-O4b" eventType="touchUpInside" id="aMf-ym-rka"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-nb-z8e">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="X0g-nb-z8e">
                                 <rect key="frame" x="16" y="49" width="164" height="164"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="164" id="TMy-AF-GId"/>
@@ -496,7 +538,7 @@
                                     <constraint firstAttribute="height" constant="164" id="ypR-Co-yei"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Парола" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-LD-8v2">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Парола" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGd-LD-8v2">
                                 <rect key="frame" x="16" y="258" width="101" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -510,7 +552,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FCL-Pl-h5o">
+                            <button opaque="NO" contentMode="center" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="wordWrap" translatesAutoresizingMaskIntoConstraints="NO" id="FCL-Pl-h5o">
                                 <rect key="frame" x="188" y="64" width="396" height="29"/>
                                 <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="14"/>
@@ -567,6 +609,9 @@
                             <constraint firstItem="FCL-Pl-h5o" firstAttribute="top" secondItem="Wzt-yh-kTO" secondAttribute="bottom" constant="23" id="zqW-B2-oHN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Назад" id="rkq-0M-Sfn">
+                        <barButtonItem key="backBarButtonItem" title="Назад" id="NBg-an-E0L"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="email" destination="o29-Bz-YBU" id="Oa7-SW-kYu"/>
                         <outlet property="password" destination="k6b-LV-5lN" id="Gsg-Lh-N0I"/>
@@ -576,7 +621,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uKm-Ji-3JK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="346" y="994"/>
+            <point key="canvasLocation" x="-70" y="666"/>
         </scene>
         <!--Main Tab Bar View Controller-->
         <scene sceneID="jJy-19-NSo">
@@ -591,7 +636,7 @@
                     <connections>
                         <segue destination="mmZ-kW-ooK" kind="relationship" relationship="viewControllers" id="7Ah-3P-ZNJ"/>
                         <segue destination="7fs-RB-7pN" kind="relationship" relationship="viewControllers" id="WYi-3u-jD1"/>
-                        <segue destination="5Xt-Uk-Vby" kind="relationship" relationship="viewControllers" id="dLR-3f-4XZ"/>
+                        <segue destination="6of-M6-MRY" kind="relationship" relationship="viewControllers" id="bSg-r7-f5s"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mt7-fi-7hG" userLabel="First Responder" sceneMemberID="firstResponder"/>
