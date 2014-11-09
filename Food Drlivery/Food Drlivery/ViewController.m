@@ -124,6 +124,17 @@
     }
 }
 
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString
+{
+    BOOL stricterFilter = NO;
+    // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
+}
+
 
 //
 //// Sent to the delegate to determine whether the log in request should be submitted to the server.
@@ -170,6 +181,18 @@
             break;
         }
     }
+    BOOL validEmail;
+    NSString *enterdEmail = signUpController.signUpView.emailField.text;
+    
+    validEmail = [self NSStringIsValidEmail:enterdEmail];
+    if(!validEmail){
+        [[[UIAlertView alloc] initWithTitle:@"Некоректен e-mail адрес!"
+                                    message:@"Моля проверете го!"
+                                   delegate:nil
+                          cancelButtonTitle:@"ok"
+                          otherButtonTitles:nil] show];
+        return validEmail;
+    }
     
     // Display an alert if a field wasn't completed
     if (!informationComplete) {
@@ -181,6 +204,11 @@
     }
     
     return informationComplete;
+}
+
+// Sent to the delegate when a PFUser is signed up.
+- (void)signUpViewController:(PFSignUpViewController *)signUpController didSignUpUser:(PFUser *)user {
+    [self dismissModalViewControllerAnimated:YES]; // Dismiss the PFSignUpViewController
 }
 
 - (void)didReceiveMemoryWarning {

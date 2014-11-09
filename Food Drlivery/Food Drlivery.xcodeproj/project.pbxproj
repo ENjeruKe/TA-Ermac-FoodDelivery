@@ -66,9 +66,10 @@
 		84ADBB731A0C3AC700584A7F /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84ADBB631A0C3AC700584A7F /* white_chocolate_donut.jpg */; };
 		84EB3F7C1A0D931000049476 /* emptyplate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84EB3F7B1A0D931000049476 /* emptyplate.jpg */; };
 		84F77AC51A0D7A61006DBE00 /* OrderDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */; };
-		CE7840C71A0ED6E2002449A4 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7840C61A0ED6E2002449A4 /* EditProfileViewController.m */; };
+		B1D16DC51A0FFA700056C04A /* no_profile.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D16DC41A0FFA6F0056C04A /* no_profile.png */; };
 		B1DA0E2D1A0E985800D53944 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DA0E2C1A0E985800D53944 /* CoreDataHelper.m */; };
 		B1DA0E301A0EA4EC00D53944 /* OrderMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DA0E2F1A0EA4EC00D53944 /* OrderMeal.m */; };
+		CE7840C71A0ED6E2002449A4 /* EditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE7840C61A0ED6E2002449A4 /* EditProfileViewController.m */; };
 		CEDEDA411A0E45670098A613 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDEDA401A0E45670098A613 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -158,12 +159,13 @@
 		84EB3F7B1A0D931000049476 /* emptyplate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = emptyplate.jpg; path = Images.xcassets/emptyplate.jpg; sourceTree = "<group>"; };
 		84F77AC31A0D7A61006DBE00 /* OrderDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailsTableViewCell.h; path = Views/OrderDetailsTableViewCell.h; sourceTree = "<group>"; };
 		84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailsTableViewCell.m; path = Views/OrderDetailsTableViewCell.m; sourceTree = "<group>"; };
-		CE7840C51A0ED6E2002449A4 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
-		CE7840C61A0ED6E2002449A4 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
+		B1D16DC41A0FFA6F0056C04A /* no_profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = no_profile.png; path = Images.xcassets/no_profile.png; sourceTree = "<group>"; };
 		B1DA0E2B1A0E985800D53944 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = CoreData/CoreDataHelper.h; sourceTree = "<group>"; };
 		B1DA0E2C1A0E985800D53944 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = CoreData/CoreDataHelper.m; sourceTree = "<group>"; };
 		B1DA0E2E1A0EA4EC00D53944 /* OrderMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderMeal.h; path = CoreData/OrderMeal.h; sourceTree = "<group>"; };
 		B1DA0E2F1A0EA4EC00D53944 /* OrderMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderMeal.m; path = CoreData/OrderMeal.m; sourceTree = "<group>"; };
+		CE7840C51A0ED6E2002449A4 /* EditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EditProfileViewController.h; sourceTree = "<group>"; };
+		CE7840C61A0ED6E2002449A4 /* EditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EditProfileViewController.m; sourceTree = "<group>"; };
 		CEDEDA3F1A0E45670098A613 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		CEDEDA401A0E45670098A613 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -247,6 +249,7 @@
 		844659221A0A3C6A00DD426C /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1D16DC41A0FFA6F0056C04A /* no_profile.png */,
 				84EB3F7B1A0D931000049476 /* emptyplate.jpg */,
 				84ADBB531A0C3AC700584A7F /* samples */,
 				841DED251A0BF91300252215 /* profile.png */,
@@ -455,6 +458,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1D16DC51A0FFA700056C04A /* no_profile.png in Resources */,
 				84ADBB701A0C3AC700584A7F /* starbucks_coffee.jpg in Resources */,
 				84ADBB691A0C3AC700584A7F /* ham_and_cheese_panini.jpg in Resources */,
 				84ADBB711A0C3AC700584A7F /* thai_shrimp_cake.jpg in Resources */,

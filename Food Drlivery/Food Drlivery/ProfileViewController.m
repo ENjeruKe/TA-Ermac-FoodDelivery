@@ -46,7 +46,11 @@
            
            // UIImageView* currentUserImage = [[UIImageView alloc]initWithImage:[UIImage imageWithData:currentUserPhoto.getData]];
            // self.profilePic = currentUserImage;
+            if (!currentUserPhoto) {
+                 self.profilePic.image =[UIImage imageNamed:@"no_profile.png"];
+            } else {
                  self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
+            }
                  self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
                  self.profilePic.clipsToBounds = YES;
             
@@ -75,10 +79,12 @@
 
 -(IBAction)editProfileButton:(id)sender {
     // load EditProfileViewController
-    UIStoryboard *storyboard = self.storyboard;
-    UIViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
-    [self presentViewController:svc animated:NO completion:nil];
+    [self performSegueWithIdentifier:@"editProfileSegue" sender:self];
+//    UIStoryboard *storyboard = self.storyboard;
+//    UIViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
+//    [self presentViewController:svc animated:NO completion:nil];
 }
+
 
 /*
 #pragma mark - Navigation

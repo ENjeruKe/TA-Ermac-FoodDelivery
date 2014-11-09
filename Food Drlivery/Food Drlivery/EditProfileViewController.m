@@ -122,9 +122,10 @@
             
             [userInfo saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
                 if (succeeded) {
-                    UIStoryboard *storyboard = self.storyboard;
-                    UIViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
-                    [self presentViewController:svc animated:NO completion:nil];
+//                    UIStoryboard *storyboard = self.storyboard;
+//                    UIViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+//                    [self presentViewController:svc animated:NO completion:nil];
+                     [self.navigationController popViewControllerAnimated:YES];
                 } else{
                     NSString *errorString = [[error userInfo] objectForKey:@"error"];
                     UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error"
@@ -146,7 +147,6 @@
             [errorAlertView show];
         }
     }];
-    
 }
 
 @end
