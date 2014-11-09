@@ -10,9 +10,11 @@
 
 @implementation Order
 
-@dynamic orderId;
+//@dynamic orderId;
+@dynamic user;
 @dynamic forHome;
 @dynamic total;
+@dynamic complete;
 
 + (void)load {
     [self registerSubclass];

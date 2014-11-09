@@ -10,11 +10,13 @@
 
 @implementation Meal
 
-@dynamic mealId;
+//@dynamic objectId;
 @dynamic title;
 @dynamic price;
 @dynamic image;
 @dynamic mealDescription;
+@dynamic mealType;
+
 
 + (void)load {
     [self registerSubclass];

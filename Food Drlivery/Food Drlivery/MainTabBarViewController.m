@@ -32,6 +32,7 @@
     UITabBarItem *item0 = [tabBar.items objectAtIndex:0];
     UITabBarItem *item1 = [tabBar.items objectAtIndex:1];
     UITabBarItem *item2 = [tabBar.items objectAtIndex:2];
+    [item1 setEnabled:NO];
     UIImage *mealIcon = [[UIImage imageNamed:@"meal.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *orderIcon = [[UIImage imageNamed:@"order.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     UIImage *profileIcon = [[UIImage imageNamed:@"profile.png"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];

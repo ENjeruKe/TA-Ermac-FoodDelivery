@@ -66,6 +66,8 @@
 		84ADBB731A0C3AC700584A7F /* white_chocolate_donut.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84ADBB631A0C3AC700584A7F /* white_chocolate_donut.jpg */; };
 		84EB3F7C1A0D931000049476 /* emptyplate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 84EB3F7B1A0D931000049476 /* emptyplate.jpg */; };
 		84F77AC51A0D7A61006DBE00 /* OrderDetailsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */; };
+		B1DA0E2D1A0E985800D53944 /* CoreDataHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DA0E2C1A0E985800D53944 /* CoreDataHelper.m */; };
+		B1DA0E301A0EA4EC00D53944 /* OrderMeal.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DA0E2F1A0EA4EC00D53944 /* OrderMeal.m */; };
 		CEDEDA411A0E45670098A613 /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDEDA401A0E45670098A613 /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -155,6 +157,10 @@
 		84EB3F7B1A0D931000049476 /* emptyplate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = emptyplate.jpg; path = Images.xcassets/emptyplate.jpg; sourceTree = "<group>"; };
 		84F77AC31A0D7A61006DBE00 /* OrderDetailsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderDetailsTableViewCell.h; path = Views/OrderDetailsTableViewCell.h; sourceTree = "<group>"; };
 		84F77AC41A0D7A61006DBE00 /* OrderDetailsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderDetailsTableViewCell.m; path = Views/OrderDetailsTableViewCell.m; sourceTree = "<group>"; };
+		B1DA0E2B1A0E985800D53944 /* CoreDataHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CoreDataHelper.h; path = CoreData/CoreDataHelper.h; sourceTree = "<group>"; };
+		B1DA0E2C1A0E985800D53944 /* CoreDataHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CoreDataHelper.m; path = CoreData/CoreDataHelper.m; sourceTree = "<group>"; };
+		B1DA0E2E1A0EA4EC00D53944 /* OrderMeal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OrderMeal.h; path = CoreData/OrderMeal.h; sourceTree = "<group>"; };
+		B1DA0E2F1A0EA4EC00D53944 /* OrderMeal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OrderMeal.m; path = CoreData/OrderMeal.m; sourceTree = "<group>"; };
 		CEDEDA3F1A0E45670098A613 /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		CEDEDA401A0E45670098A613 /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -218,6 +224,7 @@
 		844659211A0A3C6A00DD426C /* Food Drlivery */ = {
 			isa = PBXGroup;
 			children = (
+				B1DA0E271A0E94D900D53944 /* CoreData */,
 				84A56E331A0BDACA0056A3A5 /* MainTabBarViewController.h */,
 				84A56E341A0BDACA0056A3A5 /* MainTabBarViewController.m */,
 				84A361E71A0B7F0C0084B520 /* Views */,
@@ -352,6 +359,17 @@
 			path = Images.xcassets/samples;
 			sourceTree = "<group>";
 		};
+		B1DA0E271A0E94D900D53944 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				B1DA0E2B1A0E985800D53944 /* CoreDataHelper.h */,
+				B1DA0E2C1A0E985800D53944 /* CoreDataHelper.m */,
+				B1DA0E2E1A0EA4EC00D53944 /* OrderMeal.h */,
+				B1DA0E2F1A0EA4EC00D53944 /* OrderMeal.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -483,12 +501,14 @@
 				84A361E51A0B7A140084B520 /* Kitchen.m in Sources */,
 				84ADBB4D1A0C2B4D00584A7F /* MealsViewController.m in Sources */,
 				84A56E351A0BDACA0056A3A5 /* MainTabBarViewController.m in Sources */,
+				B1DA0E301A0EA4EC00D53944 /* OrderMeal.m in Sources */,
 				844659281A0A3C6A00DD426C /* AppDelegate.m in Sources */,
 				84A361E61A0B7A140084B520 /* Order.m in Sources */,
 				8446592E1A0A3C6A00DD426C /* ViewController.m in Sources */,
 				844659251A0A3C6A00DD426C /* main.m in Sources */,
 				84F77AC51A0D7A61006DBE00 /* OrderDetailsTableViewCell.m in Sources */,
 				84A44B151A0CD3000002D8D6 /* MealDetailsViewController.m in Sources */,
+				B1DA0E2D1A0E985800D53944 /* CoreDataHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

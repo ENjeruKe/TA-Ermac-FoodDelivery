@@ -50,7 +50,8 @@
     [refreshControl addTarget:mealsTableView
                        action:@selector(retrieveFromParse)
              forControlEvents:UIControlEventValueChanged];
-    [mealsTableView addSubview:refreshControl];
+    //[mealsTableView addSubview:refreshControl];
+    [mealsTableView insertSubview:refreshControl atIndex:0];
     
     [self retrieveFromParse];
     
@@ -95,28 +96,28 @@
     
    
 }
-
-- (void)addFakeData
-{
-    titles = [NSArray arrayWithObjects:@"Яйце Benedict", @"Ризото с гъби", @"Цяла закуска", @"Хамбургер", @"Сандвич с шунка и яйце", @"Крем 'Брюле'", @"Донът с бял шоколад", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
-    
-    images = [NSArray arrayWithObjects:@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg", @"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg", nil];
-    
-    for (int i=0; i< titles.count; i++) {
-        Meal *meal = [[Meal alloc] init];
-        meal.title = [titles objectAtIndex:i];
-        meal.mealDescription = @"Sample description";
-        NSData* data = UIImageJPEGRepresentation([UIImage imageNamed:[images objectAtIndex:i]], 0.5f);
-        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"Image%d.jpg", i] data:data];
-        
-        // NOT CORRECT - SAMPLE DATA
-        meal.mealId = [NSString stringWithFormat:@"Image%d.jpg", i];
-        // NOT CORRECT - SAMPLE DATA
-        meal.image = imageFile;
-        meal.price = [NSNumber numberWithDouble:(i*3.14)];
-        [mealsData addObject:meal];
-    }
-}
+//
+//- (void)addFakeData
+//{
+//    titles = [NSArray arrayWithObjects:@"Яйце Benedict", @"Ризото с гъби", @"Цяла закуска", @"Хамбургер", @"Сандвич с шунка и яйце", @"Крем 'Брюле'", @"Донът с бял шоколад", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
+//    
+//    images = [NSArray arrayWithObjects:@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg", @"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg", nil];
+//    
+//    for (int i=0; i< titles.count; i++) {
+//        Meal *meal = [[Meal alloc] init];
+//        meal.title = [titles objectAtIndex:i];
+//        meal.mealDescription = @"Sample description";
+//        NSData* data = UIImageJPEGRepresentation([UIImage imageNamed:[images objectAtIndex:i]], 0.5f);
+//        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"Image%d.jpg", i] data:data];
+//        
+//        // NOT CORRECT - SAMPLE DATA
+//        meal.objectId = [NSString stringWithFormat:@"Image%d.jpg", i];
+//        // NOT CORRECT - SAMPLE DATA
+//        meal.image = imageFile;
+//        meal.price = [NSNumber numberWithDouble:(i*3.14)];
+//        [mealsData addObject:meal];
+//    }
+//}
 
 
 - (void)didReceiveMemoryWarning
@@ -154,7 +155,8 @@
         }
     }];
     cell.mealTitle.text = tempMeal.title;
-    cell.mealTypes.text =  @"Десерт, Ястие ...";
+    cell.mealTypes.text = [[tempMeal.mealType valueForKey:@"description"] componentsJoinedByString:@", "];
+   
     // cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     return cell;
 }

@@ -12,11 +12,12 @@
 @interface Meal : PFObject<PFSubclassing>
 +(NSString *)parseClassName;
 
-@property (retain) NSString *mealId;
+//@property (retain) NSString *objectId;
 @property (retain) NSString *title;
 @property (retain) NSString *mealDescription;
 @property (retain) PFFile *image;
 @property (retain) NSNumber *price;
+@property (retain) NSArray *mealType;
 
 
 @end
