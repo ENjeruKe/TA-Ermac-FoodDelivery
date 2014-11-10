@@ -17,72 +17,50 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+}
+
+-(void)view:(BOOL)animated{
     // Do any additional setup after loading the view.
-    //PFQuery* queryPhoto = [PFQuery queryWithClassName:@"_User"];
     PFQuery *userQuery = [PFUser query];
-    //force refresh in order to get the data if it is updated
-    [[PFUser currentUser] fetchInBackground];
-    
-    //[queryPhoto whereKey:@"objectId" equalTo:[PFUser currentUser].objectId];
-    
-    
-    //PFQuery *userQuery = [PFUser query];
     //force refresh in order to get the data if it is updated
     [[PFUser currentUser] fetchInBackground];
     
     [userQuery getObjectInBackgroundWithId:[PFUser currentUser].objectId
                                      block:^(PFObject *userInfo, NSError *error) {
-    
-    //
-   // [queryPhoto findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
-        // Verify if there are no errors
-        if (!error) {
-          //   if (objects.count > 0) {
-           // PFObject* profilePhotoObject = objects[0];
-             //   NSLog(@"%@", profilePhotoObject);
-          //  PFFile* currentUserPhoto = (PFFile *)[profilePhotoObject objectForKey:@"profilePic"];
-            PFFile* currentUserPhoto = (PFFile *) userInfo[@"profilePic"];
-
-           
-           // UIImageView* currentUserImage = [[UIImageView alloc]initWithImage:[UIImage imageWithData:currentUserPhoto.getData]];
-           // self.profilePic = currentUserImage;
-            if (!currentUserPhoto) {
-                 self.profilePic.image =[UIImage imageNamed:@"no_profile.png"];
-            } else {
-                 self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
-            }
-                 self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
-                 self.profilePic.clipsToBounds = YES;
-            
-                self.address.text = userInfo[@"address"];
-            // }
-        }else {
-            NSLog(@"ERROR!!!");
-            NSString *errorString = [[error userInfo] objectForKey:@"error"];
-            UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
-            [errorAlertView show];
-            
-        }
-    }];
-
+                                         
+                                         // Verify if there are no errors
+                                         if (!error) {
+                                             PFFile* currentUserPhoto = (PFFile *) userInfo[@"profilePic"];
+                                             
+                                             if (!currentUserPhoto) {
+                                                 self.profilePic.image =[UIImage imageNamed:@"no_profile.png"];
+                                             } else {
+                                                 self.profilePic.image =[UIImage imageWithData:currentUserPhoto.getData];
+                                             }
+                                             self.profilePic.contentMode = UIViewContentModeScaleAspectFill;
+                                             self.profilePic.clipsToBounds = YES;
+                                             
+                                             self.address.text = userInfo[@"address"];
+                                         }else {
+                                             NSLog(@"ERROR!!!");
+                                             NSString *errorString = [[error userInfo] objectForKey:@"error"];
+                                             UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+                                             [errorAlertView show];
+                                             
+                                         }
+                                     }];
     
     self.username.text = [PFUser currentUser].username;
     self.email.text =[PFUser currentUser].email;
 
-    
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
 
 -(IBAction)editProfileButton:(id)sender {
-    // load EditProfileViewController
     [self performSegueWithIdentifier:@"editProfileSegue" sender:self];
-//    UIStoryboard *storyboard = self.storyboard;
-//    UIViewController *svc = [storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
-//    [self presentViewController:svc animated:NO completion:nil];
 }
 
 
