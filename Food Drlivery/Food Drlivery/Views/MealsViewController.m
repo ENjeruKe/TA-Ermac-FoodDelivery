@@ -10,6 +10,8 @@
 #import "MealTableViewCellController.h"
 #import "Meal.h"
 #import "MealDetailsViewController.h"
+#import "CoreDataHelper.h"
+#import "OrderMeal.h"
 
 @interface MealsViewController ()
 {
@@ -17,9 +19,12 @@
     NSArray *images;
     NSMutableArray *mealsData;
     Meal *tempMeal;
-    UIRefreshControl *refreshControl ;
+    UIRefreshControl *refreshControl;
   //  PFImageView *mealImage;
+    unsigned long orderMealsCount;
 }
+@property(nonatomic, strong) CoreDataHelper* cdHelper;
+
 @end
 
 @implementation MealsViewController
@@ -41,32 +46,30 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     _cdHelper = [CoreDataHelper coreDataStorageInastance];
     mealsData = [[NSMutableArray alloc] init];
     tempMeal = [[Meal alloc] init];
     
     refreshControl = [[UIRefreshControl alloc] init];
-    refreshControl.backgroundColor = [UIColor whiteColor];
-    refreshControl.tintColor = [UIColor blackColor];
-    [refreshControl addTarget:mealsTableView
-                       action:@selector(retrieveFromParse)
-             forControlEvents:UIControlEventValueChanged];
-    //[mealsTableView addSubview:refreshControl];
-    [mealsTableView insertSubview:refreshControl atIndex:0];
+//    refreshControl.backgroundColor = [UIColor whiteColor];
+//    refreshControl.tintColor = [UIColor blackColor];
+//    [refreshControl addTarget:self
+//                       action:@selector(retrieveFromParse)
+//             forControlEvents:UIControlEventValueChanged];
+//    //[mealsTableView addSubview:refreshControl];
+//    [mealsTableView insertSubview:refreshControl atIndex:0];
     
     [self retrieveFromParse];
     
     UINib *nib = [UINib nibWithNibName:@"MealTableViewCell"  bundle:nil];
     [self.mealsTableView registerNib:nib forCellReuseIdentifier:@"MealTableViewCellController"];
     // Do any additional setup after loading the view.
-    
 
-
-    //[self performSelector:@selector(retrieveFromParse)];
-   // mealImage = [[PFImageView alloc] init];
-   // [self.view addSubview:mealImage];
     
     [self.mealsTableView setDelegate:self];
     [self.mealsTableView setDataSource:self];
+    
+    [self addLongPressRecognizer];
 }
 
 -(void) retrieveFromParse{
@@ -96,34 +99,78 @@
     
    
 }
-//
-//- (void)addFakeData
-//{
-//    titles = [NSArray arrayWithObjects:@"Яйце Benedict", @"Ризото с гъби", @"Цяла закуска", @"Хамбургер", @"Сандвич с шунка и яйце", @"Крем 'Брюле'", @"Донът с бял шоколад", @"Starbucks Coffee", @"Vegetable Curry", @"Instant Noodle with Egg", @"Noodle with BBQ Pork", @"Japanese Noodle with Pork", @"Green Tea", @"Thai Shrimp Cake", @"Angry Birds Cake", @"Ham and Cheese Panini", nil];
-//    
-//    images = [NSArray arrayWithObjects:@"egg_benedict.jpg", @"mushroom_risotto.jpg", @"full_breakfast.jpg", @"hamburger.jpg", @"ham_and_egg_sandwich.jpg", @"creme_brelee.jpg", @"white_chocolate_donut.jpg", @"starbucks_coffee.jpg", @"vegetable_curry.jpg", @"instant_noodle_with_egg.jpg", @"noodle_with_bbq_pork.jpg", @"japanese_noodle_with_pork.jpg", @"green_tea.jpg", @"thai_shrimp_cake.jpg", @"angry_birds_cake.jpg", @"ham_and_cheese_panini.jpg", nil];
-//    
-//    for (int i=0; i< titles.count; i++) {
-//        Meal *meal = [[Meal alloc] init];
-//        meal.title = [titles objectAtIndex:i];
-//        meal.mealDescription = @"Sample description";
-//        NSData* data = UIImageJPEGRepresentation([UIImage imageNamed:[images objectAtIndex:i]], 0.5f);
-//        PFFile *imageFile = [PFFile fileWithName:[NSString stringWithFormat:@"Image%d.jpg", i] data:data];
-//        
-//        // NOT CORRECT - SAMPLE DATA
-//        meal.objectId = [NSString stringWithFormat:@"Image%d.jpg", i];
-//        // NOT CORRECT - SAMPLE DATA
-//        meal.image = imageFile;
-//        meal.price = [NSNumber numberWithDouble:(i*3.14)];
-//        [mealsData addObject:meal];
-//    }
-//}
 
+- (void)addMealToOrder: (Meal *) selectedMeal{
+    // Add meal to order
+    // CoreData
+    NSLog(@"%@", selectedMeal.title);
+    // Check if meal is already in the current order
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OrderMeal"];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"mealId == %@", selectedMeal.objectId];
+    [request setPredicate:predicate];
+    NSArray *fetchedObjects = [_cdHelper.context executeFetchRequest:request error:nil];
+    
+    OrderMeal* orderMeal;
+    if(fetchedObjects.count > 0){
+        //Meal Already added, so updating count
+     //   orderMealsCount = fetchedObjects.count + 1;
+        orderMeal = [fetchedObjects objectAtIndex:0];
+        NSNumber *currentQuantity = orderMeal.quantity;
+        orderMeal.quantity = @([currentQuantity integerValue] + 1);
+        
+    } else {
+        NSLog(@"ADDING NEW MEAL TO ORDER");
+        orderMeal = [NSEntityDescription insertNewObjectForEntityForName:@"OrderMeal" inManagedObjectContext:_cdHelper.context];
+        orderMeal.mealId = selectedMeal.objectId;
+        orderMeal.quantity = @1;
+        [_cdHelper.context insertObject:orderMeal];
+    }
+    
+    [self.cdHelper saveContext];
+    [self updateMealsTabBadge];
+    NSLog(@"OrderMeal saved to CoreData");
+}
+
+- (void) updateMealsTabBadge{
+    NSFetchRequest *request = [NSFetchRequest fetchRequestWithEntityName:@"OrderMeal"];
+    NSArray *fetchedObjects = [_cdHelper.context executeFetchRequest:request error:nil];
+    orderMealsCount = 0;
+    if(fetchedObjects.count > 0){
+        for (OrderMeal *orderMeal in fetchedObjects) {
+            orderMealsCount = orderMealsCount + [orderMeal.quantity longValue];
+        }
+        [[[[self.tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%lu", orderMealsCount]];
+        [[[[self.tabBarController tabBar] items] objectAtIndex:1] setBadgeValue:@"*"];
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)addLongPressRecognizer {
+    UILongPressGestureRecognizer *lpgr = [[UILongPressGestureRecognizer alloc]
+                                          initWithTarget:self action:@selector(handleLongPress:)];
+    lpgr.minimumPressDuration = 1.2; //seconds
+   // lpgr.delegate = self;
+    [self.view addGestureRecognizer:lpgr];
+}
+
+-(void)handleLongPress:(UILongPressGestureRecognizer *)gestureRecognizer
+{
+    CGPoint p = [gestureRecognizer locationInView:self.mealsTableView];
+    NSLog(@"LongPress");
+    NSIndexPath *indexPath = [self.mealsTableView indexPathForRowAtPoint:p];
+    if (indexPath == nil) {
+        NSLog(@"long press on table view but not on a row");
+    } else if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        NSLog(@"long press on table view at row %ld", indexPath.row);
+        [self addMealToOrder:[mealsData objectAtIndex:indexPath.row]];
+    } else {
+        NSLog(@"gestureRecognizer.state = %ld", gestureRecognizer.state);
+    }
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
