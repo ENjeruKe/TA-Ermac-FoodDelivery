@@ -14,4 +14,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *email;
 - (IBAction)editProfileButton:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextView *address;
+- (IBAction)logoutButton:(id)sender;
 @end

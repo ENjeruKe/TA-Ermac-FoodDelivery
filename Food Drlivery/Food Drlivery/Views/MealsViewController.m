@@ -141,6 +141,7 @@
         }
         [[[[self.tabBarController tabBar] items] objectAtIndex:0] setBadgeValue:[NSString stringWithFormat:@"%lu", orderMealsCount]];
         [[[[self.tabBarController tabBar] items] objectAtIndex:1] setBadgeValue:@"*"];
+        [[[[self.tabBarController tabBar] items] objectAtIndex:1] setEnabled:YES];
     }
 }
 

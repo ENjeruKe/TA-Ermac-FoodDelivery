@@ -17,9 +17,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+     NSLog(@"ProfileViewController viewDidLoad");
+ 
 }
 
--(void)view:(BOOL)animated{
+-(void)viewWillAppear:(BOOL)animated{
     // Do any additional setup after loading the view.
     PFQuery *userQuery = [PFUser query];
     //force refresh in order to get the data if it is updated
@@ -30,6 +32,7 @@
                                          
                                          // Verify if there are no errors
                                          if (!error) {
+                                             NSLog(@"HERE");
                                              PFFile* currentUserPhoto = (PFFile *) userInfo[@"profilePic"];
                                              
                                              if (!currentUserPhoto) {
@@ -54,6 +57,7 @@
     self.email.text =[PFUser currentUser].email;
 
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -74,4 +78,7 @@
 }
 */
 
+- (IBAction)logoutButton:(id)sender {
+    [PFUser logOut];
+}
 @end
