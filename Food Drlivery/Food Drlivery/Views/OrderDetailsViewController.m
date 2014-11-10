@@ -231,8 +231,8 @@
     }
     
     
-    tempMeal = (Meal *)[orderMeals objectAtIndex:indexPath.row];
-    [tempMeal.image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+    tempMeal = [orderMeals objectAtIndex:indexPath.row];
+    [[tempMeal image] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             UIImage *image = [UIImage imageWithData:data];
             // image can now be set on a UIImageView

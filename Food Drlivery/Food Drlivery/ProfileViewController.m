@@ -8,6 +8,7 @@
 
 #import <Parse/Parse.h>
 #import "ProfileViewController.h"
+#import "ViewController.h"
 
 @interface ProfileViewController ()
 
@@ -22,6 +23,12 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    
+    if (![PFUser currentUser]) {
+        
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+    
     // Do any additional setup after loading the view.
     PFQuery *userQuery = [PFUser query];
     //force refresh in order to get the data if it is updated
@@ -80,5 +87,11 @@
 
 - (IBAction)logoutButton:(id)sender {
     [PFUser logOut];
+    
+    // Return to login page
+    if (![PFUser currentUser]) {
+        
+      [self.navigationController popToRootViewControllerAnimated:YES];
+    }
 }
 @end

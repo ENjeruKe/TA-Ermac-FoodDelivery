@@ -185,7 +185,7 @@
     
    MealTableViewCellController *cell = (MealTableViewCellController *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
 
-    tempMeal = (Meal *)[mealsData objectAtIndex:indexPath.row];
+    tempMeal = [mealsData objectAtIndex:indexPath.row];
     //tempMeal = [mealsData objectAtIndex:indexPath.row];
 //    PFImageView *mealImage = [[PFImageView alloc] init];
 //    mealImage.image = [UIImage imageNamed:@"emptyplate.jpg"]; // placeholder image
@@ -195,7 +195,7 @@
     
  
     
-    [tempMeal.image getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
+    [[tempMeal image] getDataInBackgroundWithBlock:^(NSData *data, NSError *error) {
         if (!error) {
             UIImage *image = [UIImage imageWithData:data];
             // image can now be set on a UIImageView

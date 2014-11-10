@@ -160,6 +160,10 @@
 // Sent to the delegate when the log in attempt fails.
 - (void)logInViewController:(PFLogInViewController *)logInController didFailToLogInWithError:(NSError *)error {
     NSLog(@"Грешка при вписването...");
+    NSString *errorString = [[error userInfo] objectForKey:@"error"];
+    UIAlertView *errorAlertView = [[UIAlertView alloc] initWithTitle:@"Error" message:errorString delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil, nil];
+    [errorAlertView show];
+    
 }
 
 // Sent to the delegate when the log in screen is dismissed.

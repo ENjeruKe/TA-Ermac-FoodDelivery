@@ -418,7 +418,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logoutButton:" destination="5Xt-Uk-Vby" eventType="touchUpInside" id="QcY-xk-chE"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="wKE-fc-Z7v"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="backToLoginSegue" id="wKE-fc-Z7v"/>
                                 </connections>
                             </button>
                         </subviews>
